@@ -8,16 +8,14 @@
 #include "CLI.h"
 
 
-void run_CLI() {
-
-	/* Infinite loop */
-
+void start_CLI()
+{
 	uint8_t uart_byte_buff[1];
 	uint8_t word[20];
 	int isLED = 0;
 	char newLineMessage[] = "Enter a command: ";
 	char error[] = "Error: not a valid command. Type 'help' to see commands";
-	char help[] = "'on': turns the led on 'off' turns the led off and 'status' tells you the state of the led";
+	char help[] = "'test' runs a series of speed tests and prints the results.";
 	char status[] = "The LED is: ";
 	char isOn[] = "on";
 	char isOff[] = "off";
@@ -30,15 +28,14 @@ void run_CLI() {
 
 	while (1)
 	{
-		//HAL_UART_Transmit(&huart2, (unsigned char *)&ch, 1, 100);
 		HAL_UART_Receive(&huart2, uart_byte_buff, 1, 1000000);
 		HAL_UART_Transmit(&huart2, (unsigned char *)&uart_byte_buff[0], 1, 100);
 		if (uart_byte_buff[0] == 0x0D)
 		{
 			HAL_UART_Transmit(&huart2, (unsigned char *)&newLine, 1, 100);
-			if (word[0] == 'o' && word[1] == 'n')
+			if (word[0] == 't' && word[1] == 'e' && word[2] == 's' && word[3] == 't')
 			{
-				HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
+				run_test();
 				isLED = 1;
 				uart_byte_buff[0] = 0;
 				counter = 0;

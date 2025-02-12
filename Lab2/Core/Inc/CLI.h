@@ -17,7 +17,7 @@ extern UART_HandleTypeDef huart2;
 
 
 //Functions
-void run_CLI();
+void start_CLI();
 
 
 

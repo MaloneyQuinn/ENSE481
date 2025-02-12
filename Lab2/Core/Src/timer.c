@@ -9,12 +9,14 @@
 
 int16_t timer_start()
 {
+	HAL_TIM_Base_Start(&htim4);
 	return __HAL_TIM_GET_COUNTER(&htim4);
 }
 
 uint16_t timer_stop(uint16_t initial)
 {
 	volatile uint16_t end = __HAL_TIM_GET_COUNTER(&htim4);
+	HAL_TIM_Base_Stop(&htim4);
 	volatile uint16_t result = initial - end;
 	return result;
 }
@@ -49,7 +51,7 @@ char random_byte()
 void run_test()
 {
 	//display messages
-	srand(seed);
+	srand(4345);
 	char int32bit[] = "two random 32-bit integers: ";
 	char int64bit[] = "two random 64-bit integers: ";
 	char struct8byte[] = "8-byte struct using the assignment operator: ";
