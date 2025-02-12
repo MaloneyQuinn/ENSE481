@@ -74,6 +74,7 @@ void run_test()
 	uint32_t average = 0;
 	char charAverage[3];
 
+	HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_3);
 	for(int i = 0; i < 100; i++)
 	{
 		value1 = random_32bit();
@@ -83,6 +84,7 @@ void run_test()
 		timerFinal = timer_stop(timerInitial);
 		results[i] = timerFinal;
 	}
+	HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_2);
 	for(int i = 0; i < 100; i++)
 	{
 		average += results[i];

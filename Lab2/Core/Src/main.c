@@ -246,6 +246,9 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_2|GPIO_PIN_3, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin : B1_Pin */
@@ -253,6 +256,13 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(B1_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : PC2 PC3 */
+  GPIO_InitStruct.Pin = GPIO_PIN_2|GPIO_PIN_3;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
+  HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
   /*Configure GPIO pin : LD2_Pin */
   GPIO_InitStruct.Pin = LD2_Pin;
@@ -287,112 +297,7 @@ void Error_Handler(void)
   }
   /* USER CODE END Error_Handler_Debug */
 }
-/*
-void HAL_UART_RxCpltCallback(UART_HandleTypeDef * husart)
-{
-	//uint8_t cliBufferRX[30];
-	int isLED = 0;
-	char newLineMessage[] = "Enter a command: ";
-	char error[] = "Error: not a valid command. Type 'help' to see commands";
-	char help[] = "'on': turns the led on 'off' turns the led off and 'status' tells you the state of the led 'test' runs speed tests";
-	char status[] = "The LED is: ";
-	char isOn[] = "on";
-	char isOff[] = "off";
-	//int counter = 0;
-	char newLine = '\n';
-	char cr = '\r';
-	HAL_UART_Transmit(&huart2, (unsigned char *)&cliRXChar, 1, 100);
 
-	if (cliRXChar == 0x0D)
-	{
-		HAL_UART_Transmit(&huart2, (unsigned char *)&newLine, 1, 100);
-		if (cliBufferRX[0] == 'o' && cliBufferRX[1] == 'n')
-		{
-			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
-			isLED = 1;
-			cliRXChar = 0;
-			counter = 0;
-		}
-
-		else if (cliBufferRX[0] == 'o' && cliBufferRX[1] == 'f' && cliBufferRX[2] == 'f')
-		{
-			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
-			isLED = 0;
-			cliRXChar = 0;
-			counter = 0;
-		}
-		else if (cliBufferRX[0] == 's' && cliBufferRX[1] == 't' && cliBufferRX[2] == 'a' && cliBufferRX[3] == 't' && cliBufferRX[4] == 'u' && cliBufferRX[5] == 's')
-		{
-
-			cliRXChar = 0;
-			counter = 0;
-			for(int x = 0; x < sizeof status; x++)
-					HAL_UART_Transmit(&huart2, (unsigned char *)&status[x], 1, 100);
-			if (isLED == 1)
-			{
-				for(int x = 0; x < sizeof isOn; x++)
-					HAL_UART_Transmit(&huart2, (unsigned char *)&isOn[x], 1, 100);
-			}
-			else
-			{
-				for(int x = 0; x < sizeof isOff; x++)
-					HAL_UART_Transmit(&huart2, (unsigned char *)&isOff[x], 1, 100);
-			}
-			HAL_UART_Transmit(&huart2, (unsigned char *)&newLine, 1, 100);
-			HAL_UART_Transmit(&huart2, (unsigned char *)&newLine, 1, 100);
-			HAL_UART_Transmit(&huart2, (unsigned char *)&cr, 1, 100);
-		}
-		else if (cliBufferRX[0] == 'h' && cliBufferRX[1] == 'e' && cliBufferRX[2] == 'l' && cliBufferRX[3] == 'p')
-		{
-
-			cliRXChar = 0;
-			counter = 0;
-			for(int x = 0; x < sizeof help; x++)
-				HAL_UART_Transmit(&huart2, (unsigned char *)&help[x], 1, 100);
-			HAL_UART_Transmit(&huart2, (unsigned char *)&newLine, 1, 100);
-			HAL_UART_Transmit(&huart2, (unsigned char *)&newLine, 1, 100);
-			HAL_UART_Transmit(&huart2, (unsigned char *)&cr, 1, 100);
-		}
-		else if (cliBufferRX[0] == 't' && cliBufferRX[1] == 'e' && cliBufferRX[2] == 's' && cliBufferRX[3] == 't')
-		{
-			cliRXChar = 0;
-			counter = 0;
-			run_test();
-		}
-
-		else
-		{
-			cliRXChar = 0;
-			counter = 0;
-			for(int x = 0; x < sizeof error; x++)
-					HAL_UART_Transmit(&huart2, (unsigned char *)&error[x], 1, 100);
-			HAL_UART_Transmit(&huart2, (unsigned char *)&newLine, 1, 100);
-			HAL_UART_Transmit(&huart2, (unsigned char *)&newLine, 1, 100);
-			HAL_UART_Transmit(&huart2, (unsigned char *)&cr, 1, 100);
-		}
-		for(int x = 0; x < sizeof newLineMessage; x++)
-			HAL_UART_Transmit(&huart2, (unsigned char *)&newLineMessage[x], 1, 100);
-		for(size_t i = 0; i < sizeof cliBufferRX; i++)
-			cliBufferRX[i] = 0;
-	}
-	else if (cliRXChar == 0x7F)
-	{
-		counter --;
-		cliBufferRX[counter] = 0;
-		cliRXChar = 0;
-	}
-	else
-	{
-		cliBufferRX[counter] = cliRXChar;
-		cliRXChar = 0;
-		counter++;
-	}
-
-	while((HAL_UART_GetState(&huart2)&HAL_UART_STATE_BUSY_RX)==HAL_UART_STATE_BUSY_RX);
-	//Listen for the interrupt and buffer one character at a time.
-	HAL_UART_Receive_IT(&huart2, &cliRXChar ,1);
-}
-*/
 #ifdef  USE_FULL_ASSERT
 /**
   * @brief  Reports the name of the source file and the source line number
