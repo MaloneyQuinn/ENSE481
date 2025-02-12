@@ -48,6 +48,41 @@ char random_byte()
 	return value;
 }
 
+void clock_info()
+{
+	char newLine = '\n';
+	char cr = '\r';
+	char clockPrescalerText[] = "Prescaler Higher number indicates lower clock speed: ";
+	char clockCounterText[] = "CounterMode Indicates either counting up or down: ";
+	char clockPeriodText[] = "Period Shows the period of the counter (value it will count to/from): ";
+	char clockArray[5] = "";
+
+	for(int x = 0; x < sizeof clockPrescalerText; x++)
+		HAL_UART_Transmit(&huart2, (unsigned char *)&clockPrescalerText[x], 1, 100);
+	sprintf (clockArray, "%d", htim4.Init.Prescaler);
+	for(int x = 0; x < sizeof clockArray; x++)
+		HAL_UART_Transmit(&huart2, (unsigned char *)&clockArray[x], 1, 100);
+	HAL_UART_Transmit(&huart2, (unsigned char *)&newLine, 1, 100);
+	HAL_UART_Transmit(&huart2, (unsigned char *)&cr, 1, 100);
+
+	for(int x = 0; x < sizeof clockCounterText; x++)
+		HAL_UART_Transmit(&huart2, (unsigned char *)&clockCounterText[x], 1, 100);
+	sprintf (clockArray, "%d", htim4.Init.CounterMode);
+	for(int x = 0; x < sizeof clockArray; x++)
+		HAL_UART_Transmit(&huart2, (unsigned char *)&clockArray[x], 1, 100);
+	HAL_UART_Transmit(&huart2, (unsigned char *)&newLine, 1, 100);
+	HAL_UART_Transmit(&huart2, (unsigned char *)&cr, 1, 100);
+
+	for(int x = 0; x < sizeof clockPeriodText; x++)
+		HAL_UART_Transmit(&huart2, (unsigned char *)&clockPeriodText[x], 1, 100);
+	sprintf (clockArray, "%d", htim4.Init.Period);
+	for(int x = 0; x < sizeof clockArray; x++)
+		HAL_UART_Transmit(&huart2, (unsigned char *)&clockArray[x], 1, 100);
+	HAL_UART_Transmit(&huart2, (unsigned char *)&newLine, 1, 100);
+	HAL_UART_Transmit(&huart2, (unsigned char *)&cr, 1, 100);
+
+}
+
 void run_test()
 {
 	//display messages
@@ -73,6 +108,7 @@ void run_test()
 	uint16_t results[100];
 	uint32_t average = 0;
 	char charAverage[3];
+	char structCharAverage[4];
 
 	for(int i = 0; i < 100; i++)
 	{
@@ -321,9 +357,9 @@ void run_test()
 			HAL_UART_Transmit(&huart2, (unsigned char *)&assignMessage[x], 1, 100);
 		for(int x = 0; x < sizeof struct128byte; x++)
 			HAL_UART_Transmit(&huart2, (unsigned char *)&struct128byte[x], 1, 100);
-		sprintf (charAverage, "%d", average);
-		for(int x = 0; x < sizeof charAverage; x++)
-			HAL_UART_Transmit(&huart2, (unsigned char *)&charAverage[x], 1, 100);
+		sprintf (structCharAverage, "%d", average);
+		for(int x = 0; x < sizeof structCharAverage; x++)
+			HAL_UART_Transmit(&huart2, (unsigned char *)&structCharAverage[x], 1, 100);
 		for(int x = 0; x < sizeof ticks; x++)
 			HAL_UART_Transmit(&huart2, (unsigned char *)&ticks[x], 1, 100);
 		HAL_UART_Transmit(&huart2, (unsigned char *)&newLine, 1, 100);
@@ -356,9 +392,9 @@ void run_test()
 			HAL_UART_Transmit(&huart2, (unsigned char *)&assignMessage[x], 1, 100);
 		for(int x = 0; x < sizeof struct1024byte; x++)
 			HAL_UART_Transmit(&huart2, (unsigned char *)&struct1024byte[x], 1, 100);
-		sprintf (charAverage, "%d", average);
-		for(int x = 0; x < sizeof charAverage; x++)
-			HAL_UART_Transmit(&huart2, (unsigned char *)&charAverage[x], 1, 100);
+		sprintf (structCharAverage, "%d", average);
+		for(int x = 0; x < sizeof structCharAverage; x++)
+			HAL_UART_Transmit(&huart2, (unsigned char *)&structCharAverage[x], 1, 100);
 		for(int x = 0; x < sizeof ticks; x++)
 			HAL_UART_Transmit(&huart2, (unsigned char *)&ticks[x], 1, 100);
 		HAL_UART_Transmit(&huart2, (unsigned char *)&newLine, 1, 100);

@@ -15,7 +15,6 @@
 //Global Variables
 extern TIM_HandleTypeDef htim4;
 extern UART_HandleTypeDef huart2;
-extern unsigned int seed;
 
 struct smallBytes
 {
@@ -39,6 +38,7 @@ uint16_t timer_stop(uint16_t);
 int32_t random_32bit();
 int64_t random_64bit();
 char random_byte();
+void clock_info();
 void run_test();
 
 

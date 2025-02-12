@@ -15,11 +15,8 @@ void start_CLI()
 	int isLED = 0;
 	char newLineMessage[] = "Enter a command: ";
 	char error[] = "Error: not a valid command. Type 'help' to see commands";
-	char help[] = "'test' runs a series of speed tests and prints the results.";
-	char status[] = "The LED is: ";
-	char isOn[] = "on";
-	char isOff[] = "off";
-	int counter = 0;
+	char help[] = "'test' runs a series of speed tests and prints the results, 'clock' shows the clock details of timer4.";
+	int characterCounter = 0;
 	char newLine = '\n';
 	char cr = '\r';
 
@@ -36,44 +33,22 @@ void start_CLI()
 			if (word[0] == 't' && word[1] == 'e' && word[2] == 's' && word[3] == 't')
 			{
 				run_test();
-				isLED = 1;
 				uart_byte_buff[0] = 0;
-				counter = 0;
+				characterCounter = 0;
 			}
 
-			else if (word[0] == 'o' && word[1] == 'f' && word[2] == 'f')
+			else if (word[0] == 'c' && word[1] == 'l' && word[2] == 'o' && word[3] == 'c' && word[4] == 'k')
 			{
-				HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
-				isLED = 0;
+				clock_info();
 				uart_byte_buff[0] = 0;
-				counter = 0;
+				characterCounter = 0;
 			}
-			else if (word[0] == 's' && word[1] == 't' && word[2] == 'a' && word[3] == 't' && word[4] == 'u' && word[5] == 's')
-			{
 
-				uart_byte_buff[0] = 0;
-				counter = 0;
-				for(int x = 0; x < sizeof status; x++)
-						HAL_UART_Transmit(&huart2, (unsigned char *)&status[x], 1, 100);
-				if (isLED == 1)
-				{
-					for(int x = 0; x < sizeof isOn; x++)
-						HAL_UART_Transmit(&huart2, (unsigned char *)&isOn[x], 1, 100);
-				}
-				else
-				{
-					for(int x = 0; x < sizeof isOff; x++)
-						HAL_UART_Transmit(&huart2, (unsigned char *)&isOff[x], 1, 100);
-				}
-				HAL_UART_Transmit(&huart2, (unsigned char *)&newLine, 1, 100);
-				HAL_UART_Transmit(&huart2, (unsigned char *)&newLine, 1, 100);
-				HAL_UART_Transmit(&huart2, (unsigned char *)&cr, 1, 100);
-			}
 			else if (word[0] == 'h' && word[1] == 'e' && word[2] == 'l' && word[3] == 'p')
 			{
 
 				uart_byte_buff[0] = 0;
-				counter = 0;
+				characterCounter = 0;
 				for(int x = 0; x < sizeof help; x++)
 					HAL_UART_Transmit(&huart2, (unsigned char *)&help[x], 1, 100);
 				HAL_UART_Transmit(&huart2, (unsigned char *)&newLine, 1, 100);
@@ -83,7 +58,7 @@ void start_CLI()
 			else
 			{
 				uart_byte_buff[0] = 0;
-				counter = 0;
+				characterCounter = 0;
 				for(int x = 0; x < sizeof error; x++)
 						HAL_UART_Transmit(&huart2, (unsigned char *)&error[x], 1, 100);
 				HAL_UART_Transmit(&huart2, (unsigned char *)&newLine, 1, 100);
@@ -97,15 +72,15 @@ void start_CLI()
 		}
 		else if (uart_byte_buff[0] == 0x7F)
 		{
-			counter --;
-			word[counter] = 0;
+			characterCounter --;
+			word[characterCounter] = 0;
 			uart_byte_buff[0] = 0;
 		}
 		else
 		{
-			word[counter] = uart_byte_buff[0];
+			word[characterCounter] = uart_byte_buff[0];
 			uart_byte_buff[0] = 0;
-			counter++;
+			characterCounter++;
 		}
 	 }
 }
