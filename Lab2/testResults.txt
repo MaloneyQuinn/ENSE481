@@ -1,0 +1,39 @@
+Add two random 32-bit integers average: 18 clock ticks.
+Worst Case Execution Time: 18
+ADALM Reading: 39
+
+Add two random 64-bit integers average: 28 clock ticks.
+Worst Case Execution Time: 28
+ADALM Reading: 47
+
+Multiply two random 32-bit integers average: 18 clock ticks.
+Worst Case Execution Time: 18
+ADALM Reading: 36
+
+Multiply two random 64-bit integers average: 42 clock ticks.
+Worst Case Execution Time: 42
+ADALM Reading: 65
+
+Divide two random 32-bit integers average: 21 clock ticks.
+Worst Case Execution Time: 22
+ADALM Reading: 43
+
+Divide two random 64-bit integers average: 138 clock ticks.
+Worst Case Execution Time: 178
+ADALM Reading: 154
+
+copy a 8-byte struct using the assignment operator average: 18 clock ticks.
+Worst Case Execution Time: 18
+ADALM Reading: 38
+
+copy a 128-byte struct using the assignment operator average: 1150 clock ticks.
+Worst Case Execution Time: 1192
+ADALM Reading: 1167
+
+copy a 1024-byte struct using the assignment operator average: 9255 clock ticks.
+Worst Case Execution Time: 9292
+ADALM Reading: 9274
+
+this is with optimization O-3
+
+After re-doing the ADALM readings it is still around 20 clock ticks off.
