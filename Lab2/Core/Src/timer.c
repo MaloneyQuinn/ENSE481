@@ -44,7 +44,7 @@ int64_t random_64bit()
 char random_byte()
 {
 	char value;
-	value = rand;
+	value = rand();
 	return value;
 }
 
@@ -86,12 +86,13 @@ void clock_info()
 void run_test()
 {
 	//display messages
-	srand(4345);
+	srand(6543);
 	char int32bit[] = "two random 32-bit integers: ";
 	char int64bit[] = "two random 64-bit integers: ";
-	char struct8byte[] = "8-byte struct using the assignment operator: ";
-	char struct128byte[] = "128-byte struct using the assignment operator: ";
-	char struct1024byte[] = "1024-byte struct using the assignment operator: ";
+	char struct8byte[] = "8-byte struct using the assignment operator average: ";
+	char struct128byte[] = "128-byte struct using the assignment operator average: ";
+	char struct1024byte[] = "1024-byte struct using the assignment operator average: ";
+	char worstCaseMessage[] = "Worst Case Execution Time: ";
 	char addMessage[] = "Add ";
 	char multMessage[] = "Multiply ";
 	char divMessage[] = "Divide ";
@@ -107,7 +108,10 @@ void run_test()
 	volatile uint16_t timerFinal = 0;
 	uint16_t results[100];
 	uint32_t average = 0;
+	uint32_t worstCase = 0;
 	char charAverage[3];
+	char charWorstCaseInt[3];
+	char charWorstCaseStruct[4];
 	char structCharAverage[4];
 
 	for(int i = 0; i < 100; i++)
@@ -122,6 +126,8 @@ void run_test()
 	for(int i = 0; i < 100; i++)
 	{
 		average += results[i];
+		if (results[i] > worstCase)
+			worstCase = results[i];
 	}
 	average = average / 100;
 	for(int x = 0; x < sizeof addMessage; x++)
@@ -136,11 +142,22 @@ void run_test()
 	HAL_UART_Transmit(&huart2, (unsigned char *)&newLine, 1, 100);
 	HAL_UART_Transmit(&huart2, (unsigned char *)&cr, 1, 100);
 
+	for(int x = 0; x < sizeof worstCaseMessage; x++)
+		HAL_UART_Transmit(&huart2, (unsigned char *)&worstCaseMessage[x], 1, 100);
+	sprintf (charWorstCaseInt, "%d", worstCase);
+	for(int x = 0; x < sizeof charWorstCaseInt; x++)
+		HAL_UART_Transmit(&huart2, (unsigned char *)&charWorstCaseInt[x], 1, 100);
+	HAL_UART_Transmit(&huart2, (unsigned char *)&newLine, 1, 100);
+	HAL_UART_Transmit(&huart2, (unsigned char *)&cr, 1, 100);
+	HAL_UART_Transmit(&huart2, (unsigned char *)&newLine, 1, 100);
+	HAL_UART_Transmit(&huart2, (unsigned char *)&cr, 1, 100);
+
 	volatile uint64_t value3;
 	volatile uint64_t value4;
 	timerInitial = 0;
 	timerFinal = 0;
 	average = 0;
+	worstCase = 0;
 
 	for(int i = 0; i < 100; i++)
 	{
@@ -154,6 +171,8 @@ void run_test()
 	for(int i = 0; i < 100; i++)
 	{
 		average += results[i];
+		if (results[i] > worstCase)
+			worstCase = results[i];
 	}
 	average = average / 100;
 	for(int x = 0; x < sizeof addMessage; x++)
@@ -168,11 +187,22 @@ void run_test()
 	HAL_UART_Transmit(&huart2, (unsigned char *)&newLine, 1, 100);
 	HAL_UART_Transmit(&huart2, (unsigned char *)&cr, 1, 100);
 
+	for(int x = 0; x < sizeof worstCaseMessage; x++)
+		HAL_UART_Transmit(&huart2, (unsigned char *)&worstCaseMessage[x], 1, 100);
+	sprintf (charWorstCaseInt, "%d", worstCase);
+	for(int x = 0; x < sizeof charWorstCaseInt; x++)
+		HAL_UART_Transmit(&huart2, (unsigned char *)&charWorstCaseInt[x], 1, 100);
+	HAL_UART_Transmit(&huart2, (unsigned char *)&newLine, 1, 100);
+	HAL_UART_Transmit(&huart2, (unsigned char *)&cr, 1, 100);
+	HAL_UART_Transmit(&huart2, (unsigned char *)&newLine, 1, 100);
+	HAL_UART_Transmit(&huart2, (unsigned char *)&cr, 1, 100);
+
 	//multiply 2 int 32
 
 	timerInitial = 0;
 	timerFinal = 0;
 	average = 0;
+	worstCase = 0;
 
 	for(int i = 0; i < 100; i++)
 	{
@@ -186,6 +216,8 @@ void run_test()
 	for(int i = 0; i < 100; i++)
 	{
 		average += results[i];
+		if (results[i] > worstCase)
+			worstCase = results[i];
 	}
 	average = average / 100;
 	for(int x = 0; x < sizeof multMessage; x++)
@@ -200,11 +232,22 @@ void run_test()
 	HAL_UART_Transmit(&huart2, (unsigned char *)&newLine, 1, 100);
 	HAL_UART_Transmit(&huart2, (unsigned char *)&cr, 1, 100);
 
+	for(int x = 0; x < sizeof worstCaseMessage; x++)
+		HAL_UART_Transmit(&huart2, (unsigned char *)&worstCaseMessage[x], 1, 100);
+	sprintf (charWorstCaseInt, "%d", worstCase);
+	for(int x = 0; x < sizeof charWorstCaseInt; x++)
+		HAL_UART_Transmit(&huart2, (unsigned char *)&charWorstCaseInt[x], 1, 100);
+	HAL_UART_Transmit(&huart2, (unsigned char *)&newLine, 1, 100);
+	HAL_UART_Transmit(&huart2, (unsigned char *)&cr, 1, 100);
+	HAL_UART_Transmit(&huart2, (unsigned char *)&newLine, 1, 100);
+	HAL_UART_Transmit(&huart2, (unsigned char *)&cr, 1, 100);
+
 
 	//mult 2 64 bit
 	timerInitial = 0;
 	timerFinal = 0;
 	average = 0;
+	worstCase = 0;
 
 	for(int i = 0; i < 100; i++)
 	{
@@ -218,6 +261,8 @@ void run_test()
 	for(int i = 0; i < 100; i++)
 	{
 		average += results[i];
+		if (results[i] > worstCase)
+			worstCase = results[i];
 	}
 	average = average / 100;
 	for(int x = 0; x < sizeof multMessage; x++)
@@ -232,11 +277,22 @@ void run_test()
 	HAL_UART_Transmit(&huart2, (unsigned char *)&newLine, 1, 100);
 	HAL_UART_Transmit(&huart2, (unsigned char *)&cr, 1, 100);
 
+	for(int x = 0; x < sizeof worstCaseMessage; x++)
+		HAL_UART_Transmit(&huart2, (unsigned char *)&worstCaseMessage[x], 1, 100);
+	sprintf (charWorstCaseInt, "%d", worstCase);
+	for(int x = 0; x < sizeof charWorstCaseInt; x++)
+		HAL_UART_Transmit(&huart2, (unsigned char *)&charWorstCaseInt[x], 1, 100);
+	HAL_UART_Transmit(&huart2, (unsigned char *)&newLine, 1, 100);
+	HAL_UART_Transmit(&huart2, (unsigned char *)&cr, 1, 100);
+	HAL_UART_Transmit(&huart2, (unsigned char *)&newLine, 1, 100);
+	HAL_UART_Transmit(&huart2, (unsigned char *)&cr, 1, 100);
+
 	//divide 2 int 32
 
 	timerInitial = 0;
 	timerFinal = 0;
 	average = 0;
+	worstCase = 0;
 
 	for(int i = 0; i < 100; i++)
 	{
@@ -250,6 +306,8 @@ void run_test()
 	for(int i = 0; i < 100; i++)
 	{
 		average += results[i];
+		if (results[i] > worstCase)
+			worstCase = results[i];
 	}
 	average = average / 100;
 	for(int x = 0; x < sizeof divMessage; x++)
@@ -264,10 +322,21 @@ void run_test()
 	HAL_UART_Transmit(&huart2, (unsigned char *)&newLine, 1, 100);
 	HAL_UART_Transmit(&huart2, (unsigned char *)&cr, 1, 100);
 
+	for(int x = 0; x < sizeof worstCaseMessage; x++)
+		HAL_UART_Transmit(&huart2, (unsigned char *)&worstCaseMessage[x], 1, 100);
+	sprintf (charWorstCaseInt, "%d", worstCase);
+	for(int x = 0; x < sizeof charWorstCaseInt; x++)
+		HAL_UART_Transmit(&huart2, (unsigned char *)&charWorstCaseInt[x], 1, 100);
+	HAL_UART_Transmit(&huart2, (unsigned char *)&newLine, 1, 100);
+	HAL_UART_Transmit(&huart2, (unsigned char *)&cr, 1, 100);
+	HAL_UART_Transmit(&huart2, (unsigned char *)&newLine, 1, 100);
+	HAL_UART_Transmit(&huart2, (unsigned char *)&cr, 1, 100);
+
 	//div 2 64 bit
 	timerInitial = 0;
 	timerFinal = 0;
 	average = 0;
+	worstCase = 0;
 
 	for(int i = 0; i < 100; i++)
 	{
@@ -281,6 +350,8 @@ void run_test()
 	for(int i = 0; i < 100; i++)
 	{
 		average += results[i];
+		if (results[i] > worstCase)
+			worstCase = results[i];
 	}
 	average = average / 100;
 	for(int x = 0; x < sizeof divMessage; x++)
@@ -295,11 +366,22 @@ void run_test()
 	HAL_UART_Transmit(&huart2, (unsigned char *)&newLine, 1, 100);
 	HAL_UART_Transmit(&huart2, (unsigned char *)&cr, 1, 100);
 
+	for(int x = 0; x < sizeof worstCaseMessage; x++)
+		HAL_UART_Transmit(&huart2, (unsigned char *)&worstCaseMessage[x], 1, 100);
+	sprintf (charWorstCaseInt, "%d", worstCase);
+	for(int x = 0; x < sizeof charWorstCaseInt; x++)
+		HAL_UART_Transmit(&huart2, (unsigned char *)&charWorstCaseInt[x], 1, 100);
+	HAL_UART_Transmit(&huart2, (unsigned char *)&newLine, 1, 100);
+	HAL_UART_Transmit(&huart2, (unsigned char *)&cr, 1, 100);
+	HAL_UART_Transmit(&huart2, (unsigned char *)&newLine, 1, 100);
+	HAL_UART_Transmit(&huart2, (unsigned char *)&cr, 1, 100);
+
 	//assign 8byte struct
 
 	timerInitial = 0;
 	timerFinal = 0;
 	average = 0;
+	worstCase = 0;
 	volatile struct smallBytes value5;
 	volatile struct smallBytes value6;
 
@@ -316,6 +398,8 @@ void run_test()
 	for(int i = 0; i < 100; i++)
 	{
 		average += results[i];
+		if (results[i] > worstCase)
+			worstCase = results[i];
 	}
 	average = average / 100;
 	for(int x = 0; x < sizeof assignMessage; x++)
@@ -330,75 +414,109 @@ void run_test()
 	HAL_UART_Transmit(&huart2, (unsigned char *)&newLine, 1, 100);
 	HAL_UART_Transmit(&huart2, (unsigned char *)&cr, 1, 100);
 
+	for(int x = 0; x < sizeof worstCaseMessage; x++)
+		HAL_UART_Transmit(&huart2, (unsigned char *)&worstCaseMessage[x], 1, 100);
+	sprintf (charWorstCaseInt, "%d", worstCase);
+	for(int x = 0; x < sizeof charWorstCaseInt; x++)
+		HAL_UART_Transmit(&huart2, (unsigned char *)&charWorstCaseInt[x], 1, 100);
+	HAL_UART_Transmit(&huart2, (unsigned char *)&newLine, 1, 100);
+	HAL_UART_Transmit(&huart2, (unsigned char *)&cr, 1, 100);
+	HAL_UART_Transmit(&huart2, (unsigned char *)&newLine, 1, 100);
+	HAL_UART_Transmit(&huart2, (unsigned char *)&cr, 1, 100);
+
 	//assign 124 byte struct
 
-		timerInitial = 0;
-		timerFinal = 0;
-		average = 0;
-		volatile struct mediumBytes value7;
-		volatile struct mediumBytes value8;
+	timerInitial = 0;
+	timerFinal = 0;
+	average = 0;
+	worstCase = 0;
+	volatile struct mediumBytes value7;
+	volatile struct mediumBytes value8;
 
-		for(int i = 0; i < 100; i++)
-		{
-			for(int j = 0; j < 124; j++)
-				value7.data[j] = random_byte();
+	for(int i = 0; i < 100; i++)
+	{
+		for(int j = 0; j < 124; j++)
+			value7.data[j] = random_byte();
 
-			timerInitial = timer_start();
-			value8 = value7;
-			timerFinal = timer_stop(timerInitial);
-			results[i] = timerFinal;
-		}
-		for(int i = 0; i < 100; i++)
-		{
-			average += results[i];
-		}
-		average = average / 100;
-		for(int x = 0; x < sizeof assignMessage; x++)
-			HAL_UART_Transmit(&huart2, (unsigned char *)&assignMessage[x], 1, 100);
-		for(int x = 0; x < sizeof struct128byte; x++)
-			HAL_UART_Transmit(&huart2, (unsigned char *)&struct128byte[x], 1, 100);
-		sprintf (structCharAverage, "%d", average);
-		for(int x = 0; x < sizeof structCharAverage; x++)
-			HAL_UART_Transmit(&huart2, (unsigned char *)&structCharAverage[x], 1, 100);
-		for(int x = 0; x < sizeof ticks; x++)
-			HAL_UART_Transmit(&huart2, (unsigned char *)&ticks[x], 1, 100);
-		HAL_UART_Transmit(&huart2, (unsigned char *)&newLine, 1, 100);
-		HAL_UART_Transmit(&huart2, (unsigned char *)&cr, 1, 100);
+		timerInitial = timer_start();
+		value8 = value7;
+		timerFinal = timer_stop(timerInitial);
+		results[i] = timerFinal;
+	}
+	for(int i = 0; i < 100; i++)
+	{
+		average += results[i];
+		if (results[i] > worstCase)
+			worstCase = results[i];
+	}
+	average = average / 100;
+	for(int x = 0; x < sizeof assignMessage; x++)
+		HAL_UART_Transmit(&huart2, (unsigned char *)&assignMessage[x], 1, 100);
+	for(int x = 0; x < sizeof struct128byte; x++)
+		HAL_UART_Transmit(&huart2, (unsigned char *)&struct128byte[x], 1, 100);
+	sprintf (structCharAverage, "%d", average);
+	for(int x = 0; x < sizeof structCharAverage; x++)
+		HAL_UART_Transmit(&huart2, (unsigned char *)&structCharAverage[x], 1, 100);
+	for(int x = 0; x < sizeof ticks; x++)
+		HAL_UART_Transmit(&huart2, (unsigned char *)&ticks[x], 1, 100);
+	HAL_UART_Transmit(&huart2, (unsigned char *)&newLine, 1, 100);
+	HAL_UART_Transmit(&huart2, (unsigned char *)&cr, 1, 100);
 
-		//assign 1024 byte struct
+	for(int x = 0; x < sizeof worstCaseMessage; x++)
+		HAL_UART_Transmit(&huart2, (unsigned char *)&worstCaseMessage[x], 1, 100);
+	sprintf (charWorstCaseStruct, "%d", worstCase);
+	for(int x = 0; x < sizeof charWorstCaseStruct; x++)
+		HAL_UART_Transmit(&huart2, (unsigned char *)&charWorstCaseStruct[x], 1, 100);
+	HAL_UART_Transmit(&huart2, (unsigned char *)&newLine, 1, 100);
+	HAL_UART_Transmit(&huart2, (unsigned char *)&cr, 1, 100);
+	HAL_UART_Transmit(&huart2, (unsigned char *)&newLine, 1, 100);
+	HAL_UART_Transmit(&huart2, (unsigned char *)&cr, 1, 100);
 
-		timerInitial = 0;
-		timerFinal = 0;
-		average = 0;
-		volatile struct largeBytes value9;
-		volatile struct largeBytes value10;
+	//assign 1024 byte struct
 
-		for(int i = 0; i < 100; i++)
-		{
-			for(int j = 0; j < 1024; j++)
-				value9.data[j] = random_byte();
+	timerInitial = 0;
+	timerFinal = 0;
+	average = 0;
+	worstCase = 0;
+	volatile struct largeBytes value9;
+	volatile struct largeBytes value10;
 
-			timerInitial = timer_start();
-			value10 = value9;
-			timerFinal = timer_stop(timerInitial);
-			results[i] = timerFinal;
-		}
-		for(int i = 0; i < 100; i++)
-		{
-			average += results[i];
-		}
-		average = average / 100;
-		for(int x = 0; x < sizeof assignMessage; x++)
-			HAL_UART_Transmit(&huart2, (unsigned char *)&assignMessage[x], 1, 100);
-		for(int x = 0; x < sizeof struct1024byte; x++)
-			HAL_UART_Transmit(&huart2, (unsigned char *)&struct1024byte[x], 1, 100);
-		sprintf (structCharAverage, "%d", average);
-		for(int x = 0; x < sizeof structCharAverage; x++)
-			HAL_UART_Transmit(&huart2, (unsigned char *)&structCharAverage[x], 1, 100);
-		for(int x = 0; x < sizeof ticks; x++)
-			HAL_UART_Transmit(&huart2, (unsigned char *)&ticks[x], 1, 100);
-		HAL_UART_Transmit(&huart2, (unsigned char *)&newLine, 1, 100);
-		HAL_UART_Transmit(&huart2, (unsigned char *)&cr, 1, 100);
+	for(int i = 0; i < 100; i++)
+	{
+		for(int j = 0; j < 1024; j++)
+			value9.data[j] = random_byte();
 
+		timerInitial = timer_start();
+		value10 = value9;
+		timerFinal = timer_stop(timerInitial);
+		results[i] = timerFinal;
+	}
+	for(int i = 0; i < 100; i++)
+	{
+		average += results[i];
+		if (results[i] > worstCase)
+			worstCase = results[i];
+	}
+	average = average / 100;
+	for(int x = 0; x < sizeof assignMessage; x++)
+		HAL_UART_Transmit(&huart2, (unsigned char *)&assignMessage[x], 1, 100);
+	for(int x = 0; x < sizeof struct1024byte; x++)
+		HAL_UART_Transmit(&huart2, (unsigned char *)&struct1024byte[x], 1, 100);
+	sprintf (structCharAverage, "%d", average);
+	for(int x = 0; x < sizeof structCharAverage; x++)
+		HAL_UART_Transmit(&huart2, (unsigned char *)&structCharAverage[x], 1, 100);
+	for(int x = 0; x < sizeof ticks; x++)
+		HAL_UART_Transmit(&huart2, (unsigned char *)&ticks[x], 1, 100);
+	HAL_UART_Transmit(&huart2, (unsigned char *)&newLine, 1, 100);
+	HAL_UART_Transmit(&huart2, (unsigned char *)&cr, 1, 100);
 
+	for(int x = 0; x < sizeof worstCaseMessage; x++)
+		HAL_UART_Transmit(&huart2, (unsigned char *)&worstCaseMessage[x], 1, 100);
+	sprintf (charWorstCaseStruct, "%d", worstCase);
+	for(int x = 0; x < sizeof charWorstCaseStruct; x++)
+		HAL_UART_Transmit(&huart2, (unsigned char *)&charWorstCaseStruct[x], 1, 100);
+	HAL_UART_Transmit(&huart2, (unsigned char *)&newLine, 1, 100);
+	HAL_UART_Transmit(&huart2, (unsigned char *)&cr, 1, 100);
+	HAL_UART_Transmit(&huart2, (unsigned char *)&newLine, 1, 100);
+	HAL_UART_Transmit(&huart2, (unsigned char *)&cr, 1, 100);
 }

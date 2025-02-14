@@ -12,7 +12,6 @@ void start_CLI()
 {
 	uint8_t uart_byte_buff[1];
 	uint8_t word[20];
-	int isLED = 0;
 	char newLineMessage[] = "Enter a command: ";
 	char error[] = "Error: not a valid command. Type 'help' to see commands";
 	char help[] = "'test' runs a series of speed tests and prints the results, 'clock' shows the clock details of timer4.";
