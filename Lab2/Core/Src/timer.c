@@ -66,24 +66,27 @@ void run_test()
 	char ticks[] = " clock ticks.";
 
 	// add 2 32 bit ints
-	volatile uint32_t value1;
-	volatile uint32_t value2;
+	volatile uint32_t value1[100];
+	volatile uint32_t value2[100];
 	volatile uint16_t timerInitial = 0;
 	volatile uint16_t timerFinal = 0;
 	uint16_t results[100];
 	uint32_t average = 0;
 	char charAverage[3];
 
-	HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_3);
 	for(int i = 0; i < 100; i++)
 	{
-		value1 = random_32bit();
-		value2 = random_32bit();
-		timerInitial = timer_start();
-		value1 = value1 + value2;
-		timerFinal = timer_stop(timerInitial);
-		results[i] = timerFinal;
+		value1[i] = random_32bit();
+		value2[i] = random_32bit();
 	}
+	HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_3);
+	for(int i = 0; i < 100; i++)
+		{
+			//timerInitial = timer_start();
+			value1[i] = value1[i] + value2[i];
+			//timerFinal = timer_stop(timerInitial);
+			//results[i] = timerFinal;
+		}
 	HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_2);
 	for(int i = 0; i < 100; i++)
 	{
@@ -101,7 +104,7 @@ void run_test()
 		HAL_UART_Transmit(&huart2, (unsigned char *)&ticks[x], 1, 100);
 	HAL_UART_Transmit(&huart2, (unsigned char *)&newLine, 1, 100);
 	HAL_UART_Transmit(&huart2, (unsigned char *)&cr, 1, 100);
-
+/*
 	volatile uint64_t value3;
 	volatile uint64_t value4;
 	timerInitial = 0;
@@ -366,5 +369,5 @@ void run_test()
 		HAL_UART_Transmit(&huart2, (unsigned char *)&newLine, 1, 100);
 		HAL_UART_Transmit(&huart2, (unsigned char *)&cr, 1, 100);
 
-
+*/
 }
