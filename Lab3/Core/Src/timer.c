@@ -7,12 +7,14 @@
 
 #include "timer.h"
 
+//starts the timer and returns the initial value
 int16_t timer_start()
 {
 	HAL_TIM_Base_Start(&htim4);
 	return __HAL_TIM_GET_COUNTER(&htim4);
 }
 
+//stops the timer and returns the time elapsed.
 uint16_t timer_stop(uint16_t initial)
 {
 	volatile uint16_t end = __HAL_TIM_GET_COUNTER(&htim4);
@@ -21,6 +23,7 @@ uint16_t timer_stop(uint16_t initial)
 	return result;
 }
 
+//returns the factorial of the input
 uint32_t factorial(uint32_t input)
 {
 	volatile uint32_t result = 1;
@@ -29,6 +32,7 @@ uint32_t factorial(uint32_t input)
 	return result;
 }
 
+//returns the input to the exponent of power
 float exponent(float input, uint32_t power)
 {
 	volatile float result = input;
@@ -37,6 +41,7 @@ float exponent(float input, uint32_t power)
 	return result;
 }
 
+//calculates the taylor series to the 4th degree with an input for sin
 float taylor_sin(float input)
 {
 	volatile float result = input;
@@ -45,6 +50,7 @@ float taylor_sin(float input)
 	return result;
 }
 
+//calculates the taylor series to the 4th degree with an input for cos
 float taylor_cos(float input)
 {
 	volatile float result = 1;
@@ -53,6 +59,7 @@ float taylor_cos(float input)
 	return result;
 }
 
+//runs the tests
 void run_test()
 {
 	//display messages
@@ -62,6 +69,7 @@ void run_test()
 	char cmathCosMessage[] = "cos using cmath library: ";
 	char inputMessage[] = "For input ";
 	char sinEqualsMessage[] = ": sin = ";
+	char cosEqualsMessage[] = ": cos = ";
 	char completedMessage[] = " Completed in: ";
 	char newLine = '\n';
 	char cr = '\r';
@@ -108,6 +116,7 @@ void run_test()
 	HAL_UART_Transmit(&huart2, (unsigned char *)&newLine, 1, 100);
 	HAL_UART_Transmit(&huart2, (unsigned char *)&cr, 1, 100);
 
+	//cmath sin test
 	for(int x = 0; x < sizeof cmathSinMessage; x++)
 		HAL_UART_Transmit(&huart2, (unsigned char *)&cmathSinMessage[x], 1, 100);
 	HAL_UART_Transmit(&huart2, (unsigned char *)&newLine, 1, 100);
@@ -158,8 +167,8 @@ void run_test()
 		sprintf (charValueResult, "%f", testInput);
 		for(int x = 0; x < sizeof charValueResult; x++)
 			HAL_UART_Transmit(&huart2, (unsigned char *)&charValueResult[x], 1, 100);
-		for(int x = 0; x < sizeof sinEqualsMessage; x++)
-			HAL_UART_Transmit(&huart2, (unsigned char *)&sinEqualsMessage[x], 1, 100);
+		for(int x = 0; x < sizeof cosEqualsMessage; x++)
+			HAL_UART_Transmit(&huart2, (unsigned char *)&cosEqualsMessage[x], 1, 100);
 		sprintf (charValueResult, "%f", valueResult);
 		for(int x = 0; x < sizeof charValueResult; x++)
 			HAL_UART_Transmit(&huart2, (unsigned char *)&charValueResult[x], 1, 100);
@@ -178,6 +187,7 @@ void run_test()
 	HAL_UART_Transmit(&huart2, (unsigned char *)&newLine, 1, 100);
 	HAL_UART_Transmit(&huart2, (unsigned char *)&cr, 1, 100);
 
+	//cmath cos test
 	for(int x = 0; x < sizeof cmathCosMessage; x++)
 		HAL_UART_Transmit(&huart2, (unsigned char *)&cmathCosMessage[x], 1, 100);
 	HAL_UART_Transmit(&huart2, (unsigned char *)&newLine, 1, 100);
@@ -193,8 +203,8 @@ void run_test()
 		sprintf (charValueResult, "%f", testInput);
 		for(int x = 0; x < sizeof charValueResult; x++)
 			HAL_UART_Transmit(&huart2, (unsigned char *)&charValueResult[x], 1, 100);
-		for(int x = 0; x < sizeof sinEqualsMessage; x++)
-			HAL_UART_Transmit(&huart2, (unsigned char *)&sinEqualsMessage[x], 1, 100);
+		for(int x = 0; x < sizeof cosEqualsMessage; x++)
+			HAL_UART_Transmit(&huart2, (unsigned char *)&cosEqualsMessage[x], 1, 100);
 		sprintf (charValueResult, "%f", valueResult);
 		for(int x = 0; x < sizeof charValueResult; x++)
 			HAL_UART_Transmit(&huart2, (unsigned char *)&charValueResult[x], 1, 100);

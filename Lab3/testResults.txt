@@ -1,0 +1,57 @@
+Quinn Maloney
+200431628
+Feb 28, 2025
+
+
+Program output: 
+
+sin using Taylor Series:
+For input 0.000000: sin = 0.000000 Completed in: 3860 clock ticks.
+For input 0.785398: sin = 0.707107 Completed in: 4736 clock ticks.
+For input 1.570796: sin = 1.000003 Completed in: 4768 clock ticks.
+For input 2.356194: sin = 0.707407 Completed in: 4748 clock ticks.
+For input 3.141593: sin = 0.006925 Completed in: 4782 clock ticks.
+For input 3.926991: sin = -0.629197 Completed in: 4832 clock ticks.
+For input 4.712389: sin = -0.444365 Completed in: 4782 clock ticks.
+For input 5.497787: sin = 2.181335 Completed in: 4676 clock ticks.
+For input 6.283185: sin = 11.899563 Completed in: 4768 clock ticks.
+
+sin using cmath library:
+For input 0.000000: sin = 0.000000 Completed in: 222 clock ticks.
+For input 0.785398: sin = 0.707107 Completed in: 2026 clock ticks.
+For input 1.570796: sin = 1.000000 Completed in: 2990 clock ticks.
+For input 2.356194: sin = 0.707107 Completed in: 3810 clock ticks.
+For input 3.141593: sin = -0.000000 Completed in: 4516 clock ticks.
+For input 3.926991: sin = -0.707107 Completed in: 4198 clock ticks.
+For input 4.712389: sin = -1.000000 Completed in: 4366 clock ticks.
+For input 5.497787: sin = -0.707107 Completed in: 4204 clock ticks.
+For input 6.283185: sin = -0.000000 Completed in: 4522 clock ticks.
+
+cos using Taylor Series:
+For input -1.570796: cos = 0.000025 Completed in: 4272 clock ticks.
+For input -0.785398: cos = 0.707107 Completed in: 4226 clock ticks.
+For input -0.000000: cos = 1.000000 Completed in: 3854 clock ticks.
+For input 0.785398: cos = 0.707107 Completed in: 4226 clock ticks.
+For input 1.570796: cos = 0.000025 Completed in: 4272 clock ticks.
+For input 2.356194: cos = -0.705713 Completed in: 4248 clock ticks.
+For input 3.141593: cos = -0.976022 Completed in: 4246 clock ticks.
+For input 3.926991: cos = -0.492606 Completed in: 4326 clock ticks.
+For input 4.712389: cos = 1.265716 Completed in: 4246 clock ticks.
+
+cos using cmath library:
+For input -1.570796: cos = -0.000000 Completed in: 3096 clock ticks.
+For input -0.785398: cos = 0.707107 Completed in: 2664 clock ticks.
+For input -0.000000: cos = 1.000000 Completed in: 1866 clock ticks.
+For input 0.785398: cos = 0.707107 Completed in: 2664 clock ticks.
+For input 1.570796: cos = 0.000000 Completed in: 3378 clock ticks.
+For input 2.356194: cos = -0.707107 Completed in: 4126 clock ticks.
+For input 3.141593: cos = -1.000000 Completed in: 4408 clock ticks.
+For input 3.926991: cos = -0.707107 Completed in: 3882 clock ticks.
+For input 4.712389: cos = 0.000000 Completed in: 4386 clock ticks.
+
+
+As shown here the taylor series to the 4th degree was very good for the first few values but soon
+falls off as values increase due to lacking accuracy. It is also slower on average than the
+cmath sin and cos functions. One odd number is the cmath sin at 0 returns in 222 ticks. This is much
+faster than all the others and during debugging it does appear to be executing this fast. Why only for
+sin0? I'm not sure.
