@@ -1,0 +1,41 @@
+Dependencies for Project 'ball_height_controller', Target 'Target 1': (DO NOT MODIFY !)
+CompilerVersion: 6210000::V6.21::ARMCLANG
+F (.\main.c)(0x67E0660C)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier-I./RTE/Device/STM32F103ZG-I./RTE/_Target_1-IC:/Users/qkmal/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/qkmal/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="539" -D_RTE_ -DSTM32F10X_XL -D_RTE_-o ./objects/main.o -MD)
+I (C:\Users\qkmal\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.1\Device\Include\stm32f10x.h)(0x65BC0736)
+I (RTE\_Target_1\RTE_Components.h)(0x67E050DA)
+I (C:\Users\qkmal\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm3.h)(0x62700FBE)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x656A74F2)
+I (C:\Users\qkmal\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x62700FBE)
+I (C:\Users\qkmal\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x62700FBE)
+I (C:\Users\qkmal\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armclang.h)(0x62700FBE)
+I (C:\Users\qkmal\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\mpu_armv7.h)(0x62700FBE)
+I (C:\Users\qkmal\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.1\Device\Include\system_stm32f10x.h)(0x65BC0736)
+I (usart.h)(0x67E065ED)
+F (.\usart.c)(0x67E065E1)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier-I./RTE/Device/STM32F103ZG-I./RTE/_Target_1-IC:/Users/qkmal/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/qkmal/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="539" -D_RTE_ -DSTM32F10X_XL -D_RTE_-o ./objects/usart.o -MD)
+I (C:\Users\qkmal\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.1\Device\Include\stm32f10x.h)(0x65BC0736)
+I (RTE\_Target_1\RTE_Components.h)(0x67E050DA)
+I (C:\Users\qkmal\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm3.h)(0x62700FBE)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x656A74F2)
+I (C:\Users\qkmal\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x62700FBE)
+I (C:\Users\qkmal\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x62700FBE)
+I (C:\Users\qkmal\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armclang.h)(0x62700FBE)
+I (C:\Users\qkmal\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\mpu_armv7.h)(0x62700FBE)
+I (C:\Users\qkmal\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.1\Device\Include\system_stm32f10x.h)(0x65BC0736)
+I (usart.h)(0x67E065ED)
+F (.\ball_height_controller.doxy)(0x67E05FBA)()
+F (ball_height_controller.c)(0x67E06615)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier-I./RTE/Device/STM32F103ZG-I./RTE/_Target_1-IC:/Users/qkmal/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/qkmal/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="539" -D_RTE_ -DSTM32F10X_XL -D_RTE_-o ./objects/ball_height_controller.o -MD)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x656A74F2)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x656A74F2)
+F (.\usart.h)(0x67E065ED)()
+F (RTE/Device/STM32F103ZG/RTE_Device.h)(0x65BC073A)()
+F (RTE/Device/STM32F103ZG/startup_stm32f10x_xl.s)(0x65BC0736)(--target=arm-arm-none-eabi -mcpu=cortex-m3 -masm=auto  -Wa,armasm,--diag_suppress=A1950W -c-gdwarf-4 -Wa,armasm,--pd,"__EVAL SETA 1"-I./RTE/Device/STM32F103ZG-I./RTE/_Target_1-IC:/Users/qkmal/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/qkmal/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include-Wa,armasm,--pd,"__UVISION_VERSION SETA 539" -Wa,armasm,--pd,"_RTE_ SETA 1" -Wa,armasm,--pd,"STM32F10X_XL SETA 1" -Wa,armasm,--pd,"_RTE_ SETA 1"-o ./objects/startup_stm32f10x_xl.o)
+F (RTE/Device/STM32F103ZG/system_stm32f10x.c)(0x65BC0736)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier-I./RTE/Device/STM32F103ZG-I./RTE/_Target_1-IC:/Users/qkmal/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/qkmal/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="539" -D_RTE_ -DSTM32F10X_XL -D_RTE_-o ./objects/system_stm32f10x.o -MD)
+I (C:\Users\qkmal\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.1\Device\Include\stm32f10x.h)(0x65BC0736)
+I (RTE\_Target_1\RTE_Components.h)(0x67E050DA)
+I (C:\Users\qkmal\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm3.h)(0x62700FBE)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x656A74F2)
+I (C:\Users\qkmal\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x62700FBE)
+I (C:\Users\qkmal\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x62700FBE)
+I (C:\Users\qkmal\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armclang.h)(0x62700FBE)
+I (C:\Users\qkmal\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\mpu_armv7.h)(0x62700FBE)
+I (C:\Users\qkmal\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.1\Device\Include\system_stm32f10x.h)(0x65BC0736)
