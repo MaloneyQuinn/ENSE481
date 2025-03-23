@@ -11,11 +11,11 @@ int main(void)
 {
 	usart_setup();
 	int temp = 0;
-	usart_putch('h');
-	usart_putch('i');
+	usart_put('h');
+	usart_put('i');
 	while(1)
 	{
-		temp = usart_getch();
-		usart_putch(temp);
+		temp = usart_get();
+		usart_put(temp);
 	}
 }

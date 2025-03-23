@@ -21,13 +21,13 @@ void usart_setup(void)
 	USART2->CR1 |= (1<<13);
 }
 
-int usart_getch()
+int usart_get()
 {
 	while(!(USART2->SR & (1<<5)));
 	return ((int) (USART2->DR & 0xFF));
 }
 
-void usart_putch(int val)
+void usart_put(int val)
 {
 	while(!(USART2->SR & (1<<7)));
 	USART2->DR = (val & 0x00FF);
