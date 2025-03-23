@@ -10,4 +10,12 @@
 int main(void)
 {
 	usart_setup();
+	int temp = 0;
+	usart_putch('h');
+	usart_putch('i');
+	while(1)
+	{
+		temp = usart_getch();
+		usart_putch(temp);
+	}
 }

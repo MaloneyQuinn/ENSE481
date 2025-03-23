@@ -35,6 +35,7 @@ custom translating @.\Auto_FcArm_Cmd.inp...
 Custom: C:\Keil_v5\ARM\Bin\FCARM.exe @.\Auto_FcArm_Cmd.inp
 FCARM FILE CONVERTER V2.59
 Completed 1 File(s), Ratio 100%
+Note: source file 'ball_height_controller.c' - object file renamed from '.\Objects\ball_height_controller.o' to '.\Objects\ball_height_controller_1.o'.
 usart.c(7): warning: In file included from...
 C:/Users/qkmal/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include\stm32f10x.h(18): warning: invalid UTF-8 in comment [-Winvalid-utf8]
    18 |   *              - To use or not the peripheral<92>s drivers in application code(i.e. 
@@ -45,20 +46,12 @@ C:/Users/qkmal/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include\s
 C:/Users/qkmal/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include\stm32f10x.h(26): warning: invalid UTF-8 in comment [-Winvalid-utf8]
    26 |   *           - Macros to access peripheral<92>s registers hardware
       |                                            ^
-3 warnings generated.
+usart.c(24): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+   24 | int usart_getch()
+      |                ^
+      |                 void
+4 warnings generated.
 compiling usart.c...
-main.c(7): warning: In file included from...
-C:/Users/qkmal/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include\stm32f10x.h(18): warning: invalid UTF-8 in comment [-Winvalid-utf8]
-   18 |   *              - To use or not the peripheral<92>s drivers in application code(i.e. 
-      |                                                ^
-C:/Users/qkmal/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include\stm32f10x.h(19): warning: invalid UTF-8 in comment [-Winvalid-utf8]
-   19 |   *                code will be based on direct access to peripheral<92>s registers 
-      |                                                                     ^
-C:/Users/qkmal/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include\stm32f10x.h(26): warning: invalid UTF-8 in comment [-Winvalid-utf8]
-   26 |   *           - Macros to access peripheral<92>s registers hardware
-      |                                            ^
-3 warnings generated.
-compiling main.c...
 ball_height_controller.c(10309): warning: unsafe pointer arithmetic [-Wunsafe-buffer-usage]
  10309 |   for (; *name; name++) {
        |                 ^~~~
@@ -77,8 +70,8 @@ ball_height_controller.c(10316): warning: unsafe buffer access [-Wunsafe-buffer-
 5 warnings generated.
 compiling ball_height_controller.c...
 linking...
-Program Size: Code=796 RO-data=320 RW-data=0 ZI-data=1632  
-".\Objects\ball_height_controller.axf" - 0 Error(s), 11 Warning(s).
+Program Size: Code=984 RO-data=320 RW-data=0 ZI-data=1632  
+".\Objects\ball_height_controller.axf" - 0 Error(s), 9 Warning(s).
 
 <h2>Software Packages used:</h2>
 
