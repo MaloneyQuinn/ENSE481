@@ -15,7 +15,7 @@ enum cli_return
 	INCREASE_DUTY = 6
 };
 
-const static char PROGRAM_VERSION[] = "Version 1.0.0";
+const static char PROGRAM_VERSION[] = "Version 1.0.0, March 25, 2024, Milestone build";
 
 const static uint16_t MAX_DUTY = 2400;
 const static uint16_t MIN_DUTY = 600;
