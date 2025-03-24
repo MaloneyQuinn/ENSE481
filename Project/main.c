@@ -2,6 +2,11 @@
  * @file main.c
  * @brief Handles main logic and control loop for the project.
  * @author Quinn Maloney
+ * @version 1.0.0 March 25, 2025 Milestone Build
+ * @detailed This is the main control file for this project.
+ * it contains the main while(1){} loop which at the current
+ * build gets input and updates the hardware values to display them
+ * to the terminal.
  */
  
 #include "stm32f10x.h"
@@ -9,6 +14,11 @@
 #include "pwm.h"
 #include "adc.h"
 
+/**
+ * @brief Main control function for the program.
+ * @details calls initialization functions and runs logic for the
+ * program including a switch statement to handle input from the terminal.
+ */
 int main(void)
 {
 	usart_setup();
@@ -19,7 +29,7 @@ int main(void)
 	int cli_counter = 0;
 	int cli_result;
 	cli_update(TIM4->CCR2, ADC1->DR);
-	ADC1->CR2 = 0x00000001; // readies ADC for another conversion
+	ADC1->CR2 = 0x00000001;
 	while(1)
 	{
 		cli_result = cli_receive(buffer, cli_counter);
@@ -75,3 +85,20 @@ int main(void)
 		ADC1->CR2 = 0x00000001;
 	}
 }
+
+ /*! \mainpage Ball Height Controller
+ *
+ * \section intro_sec Description
+ *
+ * This is the documentation for the ENSE481 Ball Heigh Controller Project.<br>
+ * This project utilizes a fan to move a ping pong ball inside a tube.<br> It uses a servo
+ * to change airflow in the tube to balance the ping pong ball <br>in different locations. It uses
+ * an IR sensor to get location info of the ping pong ball.
+ *
+ * \section install_sec Additional Information
+ *
+ * Author:     Quinn Maloney<br>
+ * SID:        200431628<br>
+ * Professor:  Dr. Karim Naqvi<br>
+ * Version:    1.0.0 March 25, 2025 Milestone Build
+ */

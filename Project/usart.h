@@ -1,4 +1,5 @@
-/**
+/**@addtogroup CLI_Control
+ * @{
  * @file usart.h
  * @brief Header for usart related functions.
  * @author Quinn Maloney
@@ -17,3 +18,4 @@ void usart_print(char word[]);
 void cli_setup(void);
 void cli_update(int duty_cycle, int adc_reading);
 int cli_receive(char buffer[], int counter);
+/** @} */

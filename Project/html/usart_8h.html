@@ -104,22 +104,47 @@ $(function(){initNavTree('usart_8h.html',''); initResizable(true); });
 <div class="header">
   <div class="summary">
 <a href="#func-members">Functions</a>  </div>
-  <div class="headertitle"><div class="title">usart.h File Reference</div></div>
+  <div class="headertitle"><div class="title">usart.h File Reference<div class="ingroups"><a class="el" href="group___c_l_i___control.html">CLI_Control</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
 <p>Header for usart related functions.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;stm32f10x.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="constants_8h_source.html">constants.h</a>&quot;</code><br />
+<code>#include &lt;stdio.h&gt;</code><br />
 </div>
 <p><a href="usart_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a509825432169c631fc87e19e52371caa" id="r_a509825432169c631fc87e19e52371caa"><td class="memItemLeft" align="right" valign="top"><a id="a509825432169c631fc87e19e52371caa" name="a509825432169c631fc87e19e52371caa"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>usart_setup</b> (void)</td></tr>
-<tr class="memdesc:a509825432169c631fc87e19e52371caa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Doesn't do much right now. <br /></td></tr>
-<tr class="separator:a509825432169c631fc87e19e52371caa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga509825432169c631fc87e19e52371caa" id="r_ga509825432169c631fc87e19e52371caa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_l_i___control.html#ga509825432169c631fc87e19e52371caa">usart_setup</a> (void)</td></tr>
+<tr class="memdesc:ga509825432169c631fc87e19e52371caa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes USART2 to be used for CLI.  <br /></td></tr>
+<tr class="separator:ga509825432169c631fc87e19e52371caa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaca108db565953757d8a74c16430e8792" id="r_gaca108db565953757d8a74c16430e8792"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_l_i___control.html#gaca108db565953757d8a74c16430e8792">usart_get</a> ()</td></tr>
+<tr class="memdesc:gaca108db565953757d8a74c16430e8792"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receives a single character from COM.  <br /></td></tr>
+<tr class="separator:gaca108db565953757d8a74c16430e8792"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac96cf6b4e362cdd17a13922fd24c9f4c" id="r_gac96cf6b4e362cdd17a13922fd24c9f4c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_l_i___control.html#gac96cf6b4e362cdd17a13922fd24c9f4c">usart_put</a> (uint16_t val)</td></tr>
+<tr class="memdesc:gac96cf6b4e362cdd17a13922fd24c9f4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a single character from COM.  <br /></td></tr>
+<tr class="separator:gac96cf6b4e362cdd17a13922fd24c9f4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaff128e0012eae5508e04ccab9fd4886a" id="r_gaff128e0012eae5508e04ccab9fd4886a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_l_i___control.html#gaff128e0012eae5508e04ccab9fd4886a">get_size</a> (char word[])</td></tr>
+<tr class="memdesc:gaff128e0012eae5508e04ccab9fd4886a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns size of a char array.  <br /></td></tr>
+<tr class="separator:gaff128e0012eae5508e04ccab9fd4886a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gada0783fc04ad090d0a72716889f89f35" id="r_gada0783fc04ad090d0a72716889f89f35"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_l_i___control.html#gada0783fc04ad090d0a72716889f89f35">clear_array</a> (char word[])</td></tr>
+<tr class="memdesc:gada0783fc04ad090d0a72716889f89f35"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears all values in the passed char array.  <br /></td></tr>
+<tr class="separator:gada0783fc04ad090d0a72716889f89f35"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafd2f58074c8a086155447d9ba0e12864" id="r_gafd2f58074c8a086155447d9ba0e12864"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_l_i___control.html#gafd2f58074c8a086155447d9ba0e12864">usart_print</a> (char word[])</td></tr>
+<tr class="memdesc:gafd2f58074c8a086155447d9ba0e12864"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints the values of a char array to the command terminal.  <br /></td></tr>
+<tr class="separator:gafd2f58074c8a086155447d9ba0e12864"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae5d42c495be2b4396cf10dee8ce8cde8" id="r_gae5d42c495be2b4396cf10dee8ce8cde8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_l_i___control.html#gae5d42c495be2b4396cf10dee8ce8cde8">cli_setup</a> ()</td></tr>
+<tr class="memdesc:gae5d42c495be2b4396cf10dee8ce8cde8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets up the terminal output for the first time.  <br /></td></tr>
+<tr class="separator:gae5d42c495be2b4396cf10dee8ce8cde8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf8a4f778c6763d1d2d9541725909cb22" id="r_gaf8a4f778c6763d1d2d9541725909cb22"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_l_i___control.html#gaf8a4f778c6763d1d2d9541725909cb22">cli_update</a> (int duty_cycle, int adc_reading)</td></tr>
+<tr class="memdesc:gaf8a4f778c6763d1d2d9541725909cb22"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the data section of the CLI interface.  <br /></td></tr>
+<tr class="separator:gaf8a4f778c6763d1d2d9541725909cb22"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0fbe751191a0e6ab2b463d7a8daa1a84" id="r_ga0fbe751191a0e6ab2b463d7a8daa1a84"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_l_i___control.html#ga0fbe751191a0e6ab2b463d7a8daa1a84">cli_receive</a> (char buffer[], int counter)</td></tr>
+<tr class="memdesc:ga0fbe751191a0e6ab2b463d7a8daa1a84"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logic for user input.  <br /></td></tr>
+<tr class="separator:ga0fbe751191a0e6ab2b463d7a8daa1a84"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Header for usart related functions. </p>

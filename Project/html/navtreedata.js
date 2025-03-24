@@ -25,6 +25,9 @@
 var NAVTREE =
 [
   [ "Ball Height Controller", "index.html", [
+    [ "Description", "index.html#intro_sec", null ],
+    [ "Additional Information", "index.html#install_sec", null ],
+    [ "Topics", "topics.html", "topics" ],
     [ "Data Structures", "annotated.html", [
       [ "Data Structures", "annotated.html", "annotated_dup" ],
       [ "Data Structure Index", "classes.html", null ]
@@ -33,7 +36,8 @@ var NAVTREE =
       [ "File List", "files.html", "files_dup" ],
       [ "Globals", "globals.html", [
         [ "All", "globals.html", null ],
-        [ "Functions", "globals_func.html", null ]
+        [ "Functions", "globals_func.html", null ],
+        [ "Enumerations", "globals_enum.html", null ]
       ] ]
     ] ]
   ] ]
@@ -41,7 +45,7 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"annotated.html"
+"adc_8c.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';
