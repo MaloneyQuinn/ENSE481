@@ -4,7 +4,6 @@
  * @author Quinn Maloney
  */
  
-#include "stm32f10x.h"
 #include "usart.h"
 
 /**
@@ -54,7 +53,7 @@ void usart_print(char word[])
 		usart_put(word[i]);
 }
 
-void cli_init()
+void cli_setup()
 {
 	char move_cursor[] = "\x1b[5;0H";
 	char scroll_box[] = "\x1b[5;r";
@@ -137,6 +136,12 @@ int cli_receive(char buffer[], int counter)
 		else
 			return DO_NOTHING;
 	}
+	else if (input == 0x5B)
+			return DECREASE_DUTY;
+	
+	else if (input == 0x5D)
+		return INCREASE_DUTY;
+	
 	else
 	{
 		usart_put(input);

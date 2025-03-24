@@ -7,16 +7,19 @@
 #include "stm32f10x.h"
 #include "usart.h"
 #include "pwm.h"
+#include "adc.h"
 
 int main(void)
 {
 	usart_setup();
-	cli_init();
-	timer_setup();
+	cli_setup();
+	pwm_setup();
+	adc_setup();
 	char buffer[20];
 	int cli_counter = 0;
 	int cli_result;
-	cli_update(752, 20);
+	cli_update(TIM4->CCR2, ADC1->DR);
+	ADC1->CR2 = 0x00000001; // readies ADC for another conversion
 	while(1)
 	{
 		cli_result = cli_receive(buffer, cli_counter);
@@ -59,7 +62,16 @@ int main(void)
 			  usart_print(">> ");
 				cli_counter = 0;
 				break;
+			
+			case DECREASE_DUTY:
+				change_duty(-100);
+				break;
+			
+			case INCREASE_DUTY:
+				change_duty(100);
+				break;
 		}
-		
+		cli_update(TIM4->CCR2, ADC1->DR);
+		ADC1->CR2 = 0x00000001;
 	}
 }

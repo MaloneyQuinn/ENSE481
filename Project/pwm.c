@@ -1,7 +1,8 @@
 
 #include "pwm.h"
+#include "constants.h"
 
-void timer_setup()
+void pwm_setup()
 {
 	RCC->APB2ENR |= RCC_APB2ENR_IOPBEN;	// bit 3: IOPBEN=1, enable GPIOB clock
     
@@ -20,7 +21,14 @@ void timer_setup()
 	TIM4->CR1 |= TIM_CR1_CEN;
 }
 
-void change_duty()
+void change_duty(int change)
 {
-	TIM4->CR1 |= TIM_CR1_URS;
+	uint16_t new_duty = TIM4->CCR2 + change;
+	
+	if(new_duty > MAX_DUTY)
+		TIM4->CCR2 = MAX_DUTY;
+	else if(new_duty < MIN_DUTY)
+		TIM4->CCR2 = MIN_DUTY;
+	else
+		TIM4->CCR2 = new_duty;
 }

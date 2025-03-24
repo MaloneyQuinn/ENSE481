@@ -11,3 +11,7 @@ ARR = 20ms / 0.001ms = 20000
 Servo operating range is 600us to 2400us
 CCRxMin = 600   -> 3% duty cycle
 CCRxMax = 2400  -> 12% duty cycle
+
+180 degrees of motion, 20000 steps
+
+20000 / 180 = approx 111.11 steps a degree

@@ -10,7 +10,9 @@ enum cli_return
 	ADD_CHARACTER = 1,
 	GET_VERSION = 2,
 	GET_HELP = 3,
-	CLI_ERROR = 4
+	CLI_ERROR = 4,
+	DECREASE_DUTY = 5,
+	INCREASE_DUTY = 6
 };
 
 const static char PROGRAM_VERSION[] = "Version 1.0.0";

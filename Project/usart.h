@@ -14,6 +14,6 @@ void usart_put(uint16_t val);
 int get_size(char word[]);
 void clear_array(char word[]);
 void usart_print(char word[]);
-void cli_init(void);
+void cli_setup(void);
 void cli_update(int duty_cycle, int adc_reading);
 int cli_receive(char buffer[], int counter);
