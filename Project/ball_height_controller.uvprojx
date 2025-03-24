@@ -394,6 +394,11 @@
               <FileType>1</FileType>
               <FilePath>.\usart.c</FilePath>
             </File>
+            <File>
+              <FileName>pwm.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\pwm.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -423,6 +428,11 @@
               <FileName>constants.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\constants.h</FilePath>
+            </File>
+            <File>
+              <FileName>pwm.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\pwm.h</FilePath>
             </File>
           </Files>
         </Group>

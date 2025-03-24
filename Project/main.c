@@ -6,12 +6,13 @@
  
 #include "stm32f10x.h"
 #include "usart.h"
+#include "pwm.h"
 
 int main(void)
 {
 	usart_setup();
 	cli_init();
-	const char PROGRAM_VERSION[] = "Version 1.0.0";
+	timer_setup();
 	char buffer[20];
 	int cli_counter = 0;
 	int cli_result;

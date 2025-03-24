@@ -1,0 +1,13 @@
+PWM Calculations
+
+CLK = 72MHz, PSC = 71
+
+new frequency = 72MHZ / (71 + 1) = 1MHz
+period = 1 / 1MHZ = 0.001ms
+
+To for a waveform with a 20ms period(50Hz)
+ARR = 20ms / 0.001ms = 20000
+
+Servo operating range is 600us to 2400us
+CCRxMin = 600   -> 3% duty cycle
+CCRxMax = 2400  -> 12% duty cycle

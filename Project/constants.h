@@ -1,3 +1,7 @@
+#ifndef CONSTANTS_H
+#define CONSTANTS_H
+
+#include "stm32f10x.h"
 
 enum cli_return
 {
@@ -8,3 +12,9 @@ enum cli_return
 	GET_HELP = 3,
 	CLI_ERROR = 4
 };
+
+const static char PROGRAM_VERSION[] = "Version 1.0.0";
+
+const static uint16_t MAX_DUTY = 2400;
+const static uint16_t MIN_DUTY = 600;
+#endif
