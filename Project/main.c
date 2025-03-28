@@ -33,6 +33,7 @@ int main(void)
 	while(1)
 	{
 		cli_result = cli_receive(buffer, cli_counter);
+		
 		switch (cli_result)
 		{
 			case REMOVE_CHARACTER:
@@ -65,7 +66,7 @@ int main(void)
 				break;
 			
 			case GET_HELP:
-				usart_print("-v: shows program version.");
+				usart_print("-v: shows program version, [ and ] change duty cycle (lower and raise)");
 				usart_print("\n");
 			  usart_print("\n");
 				usart_print("\r");
