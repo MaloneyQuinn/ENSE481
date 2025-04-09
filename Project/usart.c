@@ -8,6 +8,12 @@
  */
  
 #include "usart.h"
+#include "stdbool.h"
+#include "pwm.h"
+
+static char BUFFER[20] = "";
+static int CLI_COUNTER = 0;
+static bool received = false;
 
 /**
  * @brief Initializes USART2 to be used for CLI.
@@ -35,7 +41,15 @@ void usart_setup(void)
  */
 uint16_t usart_get()
 {
-	return ((uint16_t) (USART2->DR & 0xFF));
+	//while(!(USART2->SR & (1<<5)));
+	if(received == true)
+	{
+		uint16_t character = USART2->DR & 0xFF;
+		received = false;
+		return character;
+	}
+	else
+		return NULL;
 }
 
 /**
@@ -46,7 +60,8 @@ uint16_t usart_get()
  */
 void usart_put(uint16_t val)
 {
-	USART2->DR = (val);
+	while(!(USART2->SR & (1<<7)))
+		USART2->DR = (val);
 }
 
 /**
@@ -69,7 +84,7 @@ int get_size(char word[])
 /**
  * @brief Clears all values in the passed char array.
  * @details iterates through a char array and clears all values. Used to clear 
- * the input buffer from the command terminal.
+ * the input BUFFER from the command terminal.
  * @param word (char array) is the array we want to clear.
  */
 void clear_array(char word[])
@@ -119,7 +134,7 @@ void cli_setup()
  * @param adc_reading (int) the value of the adc1 data register attached to
  * the IR sensor. Takes the voltage and converts to a binary number.
  */
-void cli_update(int duty_cycle, int adc_reading)
+void cli_update(uint32_t duty_cycle, uint32_t adc_reading)
 {
 	char newline[] = "\n";
 	char cr[] = "\r";
@@ -153,40 +168,42 @@ void cli_update(int duty_cycle, int adc_reading)
 /**
  * @brief Logic for user input.
  * @details uses usart_get() to get user input and compares what was entered.
- * Special cases are: Enter-> submits the buffer[] object and determines
- * what was entered, Backspace-> removes last input from buffer, [ and ]->
+ * Special cases are: Enter-> submits the BUFFER[] object and determines
+ * what was entered, Backspace-> removes last input from BUFFER, [ and ]->
  * [ decreases pwm duty cycle and ] increaes it.
- * @param buffer (char array) keeps track of what the user has currently entered
+ * @param BUFFER (char array) keeps track of what the user has currently entered
  * in the terminal.
- * @param counter (int) keeps track of how many characters are in the buffer. if there
+ * @param CLI_COUNTER (int) keeps track of how many characters are in the BUFFER. if there
  * are 0 nothing should be erased on a backspace.
  * @return cli_return (enum) defined in constants.h an enum is used for the variable 
  * options that can be returned.
  */
-int cli_receive(char buffer[], int counter)
+int cli_receive()
 {
 	uint16_t input = usart_get();
+	if (input == NULL)
+		return 0;
 	
 	if (input == 0x0D)
 	{
-		if (buffer[0] == '-' && buffer[1] == 'v')
+		if (BUFFER[0] == '-' && BUFFER[1] == 'v')
 		{
-			clear_array(buffer);
+			clear_array(BUFFER);
 			usart_print("\n");
 			usart_print("\r");
 			return GET_VERSION;
 		}
 		
-		else if (buffer[0] == 'h' && buffer[1] == 'e' && buffer[2] == 'l' && buffer[3] == 'p')
+		else if (BUFFER[0] == 'h' && BUFFER[1] == 'e' && BUFFER[2] == 'l' && BUFFER[3] == 'p')
 		{
-			clear_array(buffer);
+			clear_array(BUFFER);
 			usart_print("\n");
 			usart_print("\r");
 			return GET_HELP;
 		}
 		else
 		{
-			clear_array(buffer);
+			clear_array(BUFFER);
 			usart_print("\n");
 			usart_print("\r");
 			return CLI_ERROR;
@@ -194,9 +211,9 @@ int cli_receive(char buffer[], int counter)
 	}
 	else if (input == 0x7F)
 	{
-		if (counter > 0)
+		if (CLI_COUNTER > 0)
 		{
-			buffer[counter] = 0;
+			BUFFER[CLI_COUNTER] = 0;
 			usart_put(input);
 			return REMOVE_CHARACTER;
 		}
@@ -212,7 +229,7 @@ int cli_receive(char buffer[], int counter)
 	else
 	{
 		usart_put(input);
-		buffer[counter] = input;
+		BUFFER[CLI_COUNTER] = input;
 		return ADD_CHARACTER;
 	}
 }
@@ -224,8 +241,56 @@ void USART2_IRQHandler(void)
     if (IIR & USART_SR_RXNE)
 		{			// read interrupt
       USART2->SR &= ~USART_SR_RXNE;// clear interrupt
-			uint16_t input = usart_get();
-			usart_put(input);
+			received = true;
+			int cli_result = cli_receive();
+			switch (cli_result)
+		{
+			case REMOVE_CHARACTER:
+				CLI_COUNTER--;
+				break;
+			
+			case DO_NOTHING:
+				break;
+			
+			case ADD_CHARACTER:
+				CLI_COUNTER++;
+				break;
+			
+			case CLI_ERROR:
+				usart_print("error, invalid input. enter 'help' for a list of commands");
+				usart_print("\n");
+			  usart_print("\n");
+				usart_print("\r");
+			  usart_print(">> ");
+				CLI_COUNTER = 0;
+				break;
+			
+			case GET_VERSION:
+				usart_print(PROGRAM_VERSION);
+				usart_print("\n");
+			  usart_print("\n");
+				usart_print("\r");
+			  usart_print(">> ");
+				CLI_COUNTER = 0;
+				break;
+			
+			case GET_HELP:
+				usart_print("-v: shows program version, [ and ] change duty cycle (lower and raise)");
+				usart_print("\n");
+			  usart_print("\n");
+				usart_print("\r");
+			  usart_print(">> ");
+				CLI_COUNTER = 0;
+				break;
+			
+			case DECREASE_DUTY:
+				change_duty(-100);
+				break;
+			
+			case INCREASE_DUTY:
+				change_duty(100);
+				break;
+		}
 		}
 }		
 /** @} */

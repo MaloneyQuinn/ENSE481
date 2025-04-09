@@ -13,6 +13,12 @@
 #include "usart.h"
 #include "pwm.h"
 #include "adc.h"
+#include "systick.h"
+void time_delay(int time);
+void SysTick_Handler(void);
+
+static uint32_t current_pulse;
+static uint32_t current_adc;
 
 /**
  * @brief Main control function for the program.
@@ -25,69 +31,30 @@ int main(void)
 	cli_setup();
 	pwm_setup();
 	adc_setup();
-	char buffer[20];
-	int cli_counter = 0;
-	int cli_result;
-	cli_update(TIM4->CCR2, ADC1->DR);
+	systick_setup();
 	ADC1->CR2 = 0x00000001;
 	while(1)
 	{
-		/*cli_result = cli_receive(buffer, cli_counter);
-		
-		switch (cli_result)
-		{
-			case REMOVE_CHARACTER:
-				cli_counter--;
-				break;
-			
-			case DO_NOTHING:
-				break;
-			
-			case ADD_CHARACTER:
-				cli_counter++;
-				break;
-			
-			case CLI_ERROR:
-				usart_print("error, invalid input. enter 'help' for a list of commands");
-				usart_print("\n");
-			  usart_print("\n");
-				usart_print("\r");
-			  usart_print(">> ");
-				cli_counter = 0;
-				break;
-			
-			case GET_VERSION:
-				usart_print(PROGRAM_VERSION);
-				usart_print("\n");
-			  usart_print("\n");
-				usart_print("\r");
-			  usart_print(">> ");
-				cli_counter = 0;
-				break;
-			
-			case GET_HELP:
-				usart_print("-v: shows program version, [ and ] change duty cycle (lower and raise)");
-				usart_print("\n");
-			  usart_print("\n");
-				usart_print("\r");
-			  usart_print(">> ");
-				cli_counter = 0;
-				break;
-			
-			case DECREASE_DUTY:
-				change_duty(-100);
-				break;
-			
-			case INCREASE_DUTY:
-				change_duty(100);
-				break;
-		}
-		*/
-		//cli_update(TIM4->CCR2, ADC1->DR);
+		current_pulse = TIM4->CCR2;
+		current_adc = ADC1->DR;
+		time_delay(500000);
+		time_delay(500000);
+		time_delay(500000);
 		ADC1->CR2 = 0x00000001;
 	}
 }
 
+void time_delay(int time)
+{
+	for(volatile int i = 0; i < time; i++);
+}
+
+void SysTick_Handler(void)
+{
+	cli_update(current_pulse, current_adc);
+	SysTick->VAL = 0;
+	
+}
  /*! \mainpage Ball Height Controller
  *
  * \section intro_sec Description
