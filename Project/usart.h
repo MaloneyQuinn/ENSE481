@@ -18,4 +18,5 @@ void usart_print(char word[]);
 void cli_setup(void);
 void cli_update(int duty_cycle, int adc_reading);
 int cli_receive(char buffer[], int counter);
+void USART2_IRQHandler(void) ;
 /** @} */

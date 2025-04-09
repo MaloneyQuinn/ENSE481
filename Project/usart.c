@@ -23,6 +23,8 @@ void usart_setup(void)
 	USART2->BRR = 0xEA6;
 	USART2->CR1 |= (1<<3) | (1<<2);
 	USART2->CR1 |= (1<<13);
+	USART2->CR1 |= (1<<5);
+	NVIC_EnableIRQ(USART2_IRQn);
 }
 
 /**
@@ -33,7 +35,6 @@ void usart_setup(void)
  */
 uint16_t usart_get()
 {
-	while(!(USART2->SR & (1<<5)));
 	return ((uint16_t) (USART2->DR & 0xFF));
 }
 
@@ -45,7 +46,6 @@ uint16_t usart_get()
  */
 void usart_put(uint16_t val)
 {
-	while(!(USART2->SR & (1<<7)));
 	USART2->DR = (val);
 }
 
@@ -216,4 +216,16 @@ int cli_receive(char buffer[], int counter)
 		return ADD_CHARACTER;
 	}
 }
+
+void USART2_IRQHandler(void) 
+{
+  volatile unsigned int IIR;
+    IIR = USART2->SR;
+    if (IIR & USART_SR_RXNE)
+		{			// read interrupt
+      USART2->SR &= ~USART_SR_RXNE;// clear interrupt
+			uint16_t input = usart_get();
+			usart_put(input);
+		}
+}		
 /** @} */

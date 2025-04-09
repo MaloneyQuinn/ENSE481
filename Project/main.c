@@ -32,7 +32,7 @@ int main(void)
 	ADC1->CR2 = 0x00000001;
 	while(1)
 	{
-		cli_result = cli_receive(buffer, cli_counter);
+		/*cli_result = cli_receive(buffer, cli_counter);
 		
 		switch (cli_result)
 		{
@@ -82,7 +82,8 @@ int main(void)
 				change_duty(100);
 				break;
 		}
-		cli_update(TIM4->CCR2, ADC1->DR);
+		*/
+		//cli_update(TIM4->CCR2, ADC1->DR);
 		ADC1->CR2 = 0x00000001;
 	}
 }

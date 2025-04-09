@@ -1,4 +1,4 @@
-FCARM FILE CONVERTER V2.59                                                              03/27/2025  19:55:50  PAGE 1
+FCARM FILE CONVERTER V2.59                                                              04/09/2025  12:17:42  PAGE 1
 
 
 FCARM FILE CONVERTER V2.59, INVOKED BY:
@@ -67,7 +67,7 @@ e.# following values are used ($name is automatically replaced with the name of.
 e widget, The $name file, is, provides,.# specifies, contains, represents, a, an and the...ABBREVIATE_BRIEF       = "Th
 e $name class" \.                         "The $name widget" \.                         "The $name file" \.            
              is \.                         provides \.                         specifies \.                         con
-FCARM FILE CONVERTER V2.59                                                            03/27/2025  19:55:50  PAGE 2
+FCARM FILE CONVERTER V2.59                                                            04/09/2025  12:17:42  PAGE 2
 
 
 tains \.                         represents \.                         a \.                         an \.              
@@ -135,7 +135,7 @@ TPUT_SLICE  = NO..# Doxygen selects the parser to use depending on the extension
 g you can assign which parser to use for a given.# extension. Doxygen has a built-in mapping, but you can override or e
 xtend it.# using this tag. The format is ext=language, where ext is a file extension, and.# language is one of the pars
 ers supported by Doxygen: IDL, Java, JavaScript,.# Csharp (C#), C, C++, Lex, D, PHP, md (Markdown), Objective-C, Python
-FCARM FILE CONVERTER V2.59                                                            03/27/2025  19:55:50  PAGE 3
+FCARM FILE CONVERTER V2.59                                                            04/09/2025  12:17:42  PAGE 3
 
 
 , Slice,.# VHDL, Fortran (fixed format Fortran: FortranFixed, free formatted Fortran:.# FortranFree, unknown formatted 
@@ -203,7 +203,7 @@ in the.# code, Doxygen keeps a cache of pre-resolved symbols. If the cache is to
 f the cache is too large, memory is wasted. The.# cache size is given by this formula: 2^(16+LOOKUP_CACHE_SIZE). The va
 lid range.# is 0..9, the default is 0, corresponding to a cache size of 2^16=65536.# symbols. At the end of a run Doxyg
 en will report the cache usage and suggest.# the optimal cache size from a speed point of view..# Minimum value: 0, max
-FCARM FILE CONVERTER V2.59                                                            03/27/2025  19:55:50  PAGE 4
+FCARM FILE CONVERTER V2.59                                                            04/09/2025  12:17:42  PAGE 4
 
 
 imum value: 9, default value: 0...LOOKUP_CACHE_SIZE      = 0..# The NUM_PROC_THREADS specifies the number of threads Do
@@ -271,7 +271,7 @@ ass..# The default value is: YES...SHOW_HEADERFILE        = YES..# If the SHOW_I
 ygen will put a list of.# the files that are included by a file in the documentation of that file..# The default value 
 is: YES...SHOW_INCLUDE_FILES     = YES..# If the SHOW_GROUPED_MEMB_INC tag is set to YES then Doxygen will add for each
 .# grouped member an include statement to the documentation, telling the reader.# which file to include in order to use
-FCARM FILE CONVERTER V2.59                                                            03/27/2025  19:55:50  PAGE 5
+FCARM FILE CONVERTER V2.59                                                            04/09/2025  12:17:42  PAGE 5
 
 
  the member..# The default value is: NO...SHOW_GROUPED_MEMB_INC  = NO..# If the FORCE_LOCAL_INCLUDES tag is set to YES 
@@ -339,7 +339,7 @@ vironment variable) so that external tools such as latex and gs can be.# found..
 RNAL_TOOL_PATH are added in front of the.# path already specified by the PATH variable, and are added in the order.# sp
 ecified..# Note: This option is particularly useful for macOS version 14 (Sonoma) and.# higher, when running Doxygen fr
 om Doxywizard, because in this case any user-.# defined changes to the PATH are ignored. A typical example on macOS is 
-FCARM FILE CONVERTER V2.59                                                            03/27/2025  19:55:50  PAGE 6
+FCARM FILE CONVERTER V2.59                                                            04/09/2025  12:17:42  PAGE 6
 
 
 to set.# EXTERNAL_TOOL_PATH = /Library/TeX/texbin /usr/local/bin.# together with the standard path, the full search pat
@@ -407,7 +407,7 @@ e the files are not.# read by Doxygen..#.# Note the list of default checked file
 .# default file extension mappings..#.# If left blank the following patterns are tested:*.c, *.cc, *.cxx, *.cxxm,.# *.c
 pp, *.cppm, *.ccm, *.c++, *.c++m, *.java, *.ii, *.ixx, *.ipp, *.i++, *.inl,.# *.idl, *.ddl, *.odl, *.h, *.hh, *.hxx, *.
 hpp, *.h++, *.ixx, *.l, *.cs, *.d,.# *.php, *.php4, *.php5, *.phtml, *.inc, *.m, *.markdown, *.md, *.mm, *.dox (to.# be
-FCARM FILE CONVERTER V2.59                                                            03/27/2025  19:55:50  PAGE 7
+FCARM FILE CONVERTER V2.59                                                            04/09/2025  12:17:42  PAGE 7
 
 
  provided as Doxygen C comment), *.py, *.pyw, *.f90, *.f95, *.f03, *.f08,.# *.f18, *.f, *.for, *.vhd, *.vhdl, *.ucf, *.
@@ -475,7 +475,7 @@ E.md starts with a \dir, \page or \mainpage.# command. If set to NO, the README.
  \dir.# command in order to be used as directory documentation..# The default value is: YES...IMPLICIT_DIR_DOCS      = 
 YES..# The Fortran standard specifies that for fixed formatted Fortran code all.# characters from position 72 are to be
  considered as comment. A common.# extension is to allow longer lines before the automatic comment starts. The.# settin
-FCARM FILE CONVERTER V2.59                                                            03/27/2025  19:55:50  PAGE 8
+FCARM FILE CONVERTER V2.59                                                            04/09/2025  12:17:42  PAGE 8
 
 
 g FORTRAN_COMMENT_AFTER will also make it possible that longer lines can.# be processed before the automatic comment st
@@ -543,7 +543,7 @@ hp, .asp)..# The default value is: .html..# This tag requires that the tag GENER
 NSION    = .html..# The HTML_HEADER tag can be used to specify a user-defined HTML header file for.# each generated HTM
 L page. If the tag is left blank Doxygen will generate a.# standard header..#.# To get valid HTML the header file that 
 includes any scripts and style sheets.# that Doxygen needs, which is dependent on the configuration options used (e.g..
-FCARM FILE CONVERTER V2.59                                                            03/27/2025  19:55:50  PAGE 9
+FCARM FILE CONVERTER V2.59                                                            04/09/2025  12:17:42  PAGE 9
 
 
 # the setting GENERATE_TREEVIEW). It is highly recommended to start with a.# default header using.# doxygen -w html new
@@ -611,7 +611,7 @@ gs apply to all HTML pages generated by.# Doxygen across all projects. The HTML_
 .# the settings under a project specific key, such that the user preferences will.# be stored separately..# This tag re
 quires that the tag GENERATE_HTML is set to YES...HTML_PROJECT_COOKIE    =..# With HTML_INDEX_NUM_ENTRIES one can contr
 ol the preferred number of entries.# shown in the various tree structured indices initially; the user can expand.# and 
-FCARM FILE CONVERTER V2.59                                                            03/27/2025  19:55:50  PAGE 10
+FCARM FILE CONVERTER V2.59                                                            04/09/2025  12:17:42  PAGE 10
 
 
 collapse entries dynamically later on. Doxygen will expand the tree to.# such a level that at most the specified number
@@ -679,7 +679,7 @@ ease see Qt Help Project / Namespace.# (see:.# https://doc.qt.io/archives/qt-4.8
 efault value is: org.doxygen.Project..# This tag requires that the tag GENERATE_QHP is set to YES...QHP_NAMESPACE      
     = org.doxygen.Project..# The QHP_VIRTUAL_FOLDER tag specifies the namespace to use when generating Qt.# Help Projec
 t output. For more information please see Qt Help Project / Virtual.# Folders (see:.# https://doc.qt.io/archives/qt-4.8
-FCARM FILE CONVERTER V2.59                                                            03/27/2025  19:55:50  PAGE 11
+FCARM FILE CONVERTER V2.59                                                            04/09/2025  12:17:42  PAGE 11
 
 
 /qthelpproject.html#virtual-folders)..# The default value is: doc..# This tag requires that the tag GENERATE_QHP is set
@@ -747,7 +747,7 @@ and \renewcommand commands.# to create new LaTeX commands to be used in formulas
 sing MathJax (see.# https://www.mathjax.org) which uses client side JavaScript for the rendering.# instead of using pre
 -rendered bitmaps. Use this if you do not have LaTeX.# installed or if you want to formulas look prettier in the HTML o
 utput. When.# enabled you may also need to install MathJax separately and configure the path.# to it using the MATHJAX_
-FCARM FILE CONVERTER V2.59                                                            03/27/2025  19:55:50  PAGE 12
+FCARM FILE CONVERTER V2.59                                                            04/09/2025  12:17:42  PAGE 12
 
 
 RELPATH option..# The default value is: NO..# This tag requires that the tag GENERATE_HTML is set to YES...USE_MATHJAX 
@@ -815,7 +815,7 @@ n file, but that are.# all added to the same external search index. Each project
 TERNAL_SEARCH_ID. The search mapping then maps the id of.# to a relative location where the documentation can be found.
  The format is:.# EXTRA_SEARCH_MAPPINGS = tagname1=loc1 tagname2=loc2 ....# This tag requires that the tag SEARCHENGINE
  is set to YES...EXTRA_SEARCH_MAPPINGS  =..#---------------------------------------------------------------------------
-FCARM FILE CONVERTER V2.59                                                            03/27/2025  19:55:50  PAGE 13
+FCARM FILE CONVERTER V2.59                                                            04/09/2025  12:17:42  PAGE 13
 
 
 .# Configuration options related to the LaTeX output.#-----------------------------------------------------------------
@@ -883,7 +883,7 @@ asking for user intervention..# The default value is: NO..# This tag requires th
 ...LATEX_BATCHMODE        = NO..# If the LATEX_HIDE_INDICES tag is set to YES then Doxygen will not include the.# index
  chapters (such as File Index, Compound Index, etc.) in the output..# The default value is: NO..# This tag requires tha
 t the tag GENERATE_LATEX is set to YES...LATEX_HIDE_INDICES     = NO..# The LATEX_BIB_STYLE tag can be used to specify 
-FCARM FILE CONVERTER V2.59                                                            03/27/2025  19:55:50  PAGE 14
+FCARM FILE CONVERTER V2.59                                                            04/09/2025  12:17:42  PAGE 14
 
 
 the style to use for the.# bibliography, e.g. plainnat, or ieeetr. See.# https://en.wikipedia.org/wiki/BibTeX and \cite
@@ -951,7 +951,7 @@ _OUTPUT         = docbook..#----------------------------------------------------
 .sourceforge.net/) file that captures.# the structure of the code including all documentation. Note that this feature.#
  is still experimental and incomplete at the moment..# The default value is: NO...GENERATE_AUTOGEN_DEF   = NO..#-------
 --------------------------------------------------------------------.# Configuration options related to Sqlite3 output.
-FCARM FILE CONVERTER V2.59                                                            03/27/2025  19:55:50  PAGE 15
+FCARM FILE CONVERTER V2.59                                                            04/09/2025  12:17:42  PAGE 15
 
 
 #---------------------------------------------------------------------------..# If the GENERATE_SQLITE3 tag is set to Y
@@ -1019,7 +1019,7 @@ tag files...GENERATE_TAGFILE       =..# If the ALLEXTERNALS tag is set to YES, a
 ll be listed in the class and namespace index. If set to NO, only the.# inherited external classes will be listed..# Th
 e default value is: NO...ALLEXTERNALS           = NO..# If the EXTERNAL_GROUPS tag is set to YES, all external groups w
 ill be listed.# in the topic index. If set to NO, only the current project's groups will be.# listed..# The default val
-FCARM FILE CONVERTER V2.59                                                            03/27/2025  19:55:50  PAGE 16
+FCARM FILE CONVERTER V2.59                                                            04/09/2025  12:17:42  PAGE 16
 
 
 ue is: YES...EXTERNAL_GROUPS        = YES..# If the EXTERNAL_PAGES tag is set to YES, all external pages will be listed
@@ -1087,7 +1087,7 @@ the actual line length exceeds this threshold.# significantly it will be wrapped
  are.# applied to avoid ugly line breaks..# Minimum value: 0, maximum value: 1000, default value: 17..# This tag requir
 es that the tag HAVE_DOT is set to YES...DOT_WRAP_THRESHOLD     = 17..# If the TEMPLATE_RELATIONS tag is set to YES the
 n the inheritance and.# collaboration graphs will show the relations between templates and their.# instances..# The def
-FCARM FILE CONVERTER V2.59                                                            03/27/2025  19:55:50  PAGE 17
+FCARM FILE CONVERTER V2.59                                                            04/09/2025  12:17:42  PAGE 17
 
 
 ault value is: NO..# This tag requires that the tag HAVE_DOT is set to YES...TEMPLATE_RELATIONS     = NO..# If the INCL
@@ -1155,7 +1155,7 @@ e the graph, which is visualized.# by representing a node as a red box. Note tha
 te that.# the size of a graph can be further restricted by MAX_DOT_GRAPH_DEPTH..# Minimum value: 0, maximum value: 1000
 0, default value: 50..# This tag requires that the tag HAVE_DOT is set to YES...DOT_GRAPH_MAX_NODES    = 50..# The MAX_
 DOT_GRAPH_DEPTH tag can be used to set the maximum depth of the graphs.# generated by dot. A depth value of 3 means tha
-FCARM FILE CONVERTER V2.59                                                            03/27/2025  19:55:50  PAGE 18
+FCARM FILE CONVERTER V2.59                                                            04/09/2025  12:17:42  PAGE 18
 
 
 t only nodes reachable from the.# root by following a path via at most 3 edges will be shown. Nodes that lay.# further 
