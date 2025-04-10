@@ -1,9 +1,11 @@
 var searchData=
 [
-  ['usart_2ec_0',['usart.c',['../usart_8c.html',1,'']]],
-  ['usart_2eh_1',['usart.h',['../usart_8h.html',1,'']]],
-  ['usart_5fget_2',['usart_get',['../group___c_l_i___control.html#gaca108db565953757d8a74c16430e8792',1,'usart.c']]],
-  ['usart_5fprint_3',['usart_print',['../group___c_l_i___control.html#gafd2f58074c8a086155447d9ba0e12864',1,'usart.c']]],
-  ['usart_5fput_4',['usart_put',['../group___c_l_i___control.html#gac96cf6b4e362cdd17a13922fd24c9f4c',1,'usart.c']]],
-  ['usart_5fsetup_5',['usart_setup',['../group___c_l_i___control.html#ga509825432169c631fc87e19e52371caa',1,'usart.c']]]
+  ['pid_0',['pid',['../structpid.html',1,'']]],
+  ['pid_2eh_1',['pid.h',['../pid_8h.html',1,'']]],
+  ['pid_5fcontrol_2',['PID_Control',['../group___p_i_d___control.html',1,'']]],
+  ['pid_5finit_3',['pid_init',['../group___p_i_d___control.html#gacd10430919ede29dc15a631314530a06',1,'pid.c']]],
+  ['pid_5fupdate_4',['pid_update',['../group___p_i_d___control.html#gab5e592155dd6cb7e825f7fd9cc12dbe9',1,'pid.c']]],
+  ['pwm_2ec_5',['pwm.c',['../pwm_8c.html',1,'']]],
+  ['pwm_2eh_6',['pwm.h',['../pwm_8h.html',1,'']]],
+  ['pwm_5fsetup_7',['pwm_setup',['../group___ball___control.html#ga6b11f55ddc2f9d1125c97a47e4a799f6',1,'pwm.c']]]
 ];

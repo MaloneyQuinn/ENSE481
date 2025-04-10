@@ -29,7 +29,7 @@ static bool SELF_BALANCING = false;
 /**
  * @brief Main control function for the program.
  * @details calls initialization functions and runs logic for the
- * program including a switch statement to handle input from the terminal.
+ * PID controller.
  */
 int main(void)
 {
@@ -54,11 +54,21 @@ int main(void)
 	}
 }
 
+/**
+ * @brief Time delay function used to create small delays between PID updates.
+ * @details simply loops the number of times based on value passed to it.
+ * @param time (int) the amount of times to loop.
+ */
 void time_delay(int time)
 {
 	for(volatile int i = 0; i < time; i++);
 }
 
+/**
+ * @brief SysTick interrupt handler used to cupdate CLI.
+ * @details updates everytime SysTick triggers updating the CLI with
+ * new PWM and IR sensor values.
+ */
 void SysTick_Handler(void)
 {
 	cli_update(CURRENT_PULSE, CURRENT_ADC);
@@ -66,6 +76,11 @@ void SysTick_Handler(void)
 	
 }
 
+/**
+ * @brief USART2 interrupt handler. Triggers on input and processes the input.
+ * @details Takes value and inserts it into buffer and processes input. Lower priority
+ * than SysTick handler so it cannot act before Systick and will be pre-emted by SysTick handler.
+ */
 void USART2_IRQHandler(void) 
 {
   volatile unsigned int IIR;
@@ -169,4 +184,9 @@ void USART2_IRQHandler(void)
  * SID:        200431628<br>
  * Professor:  Dr. Karim Naqvi<br>
  * Version:    1.0.0 March 25, 2025 Milestone Build
+ *
+ * \section git commit number
+ * use command: git log --pretty=format:'#define GIT_INFO_PRESENT%n static const char* GIT_INFO = "Version Information=[%H,%d]\r\n";' -n 1 > gitcommit.h<br>
+ * to generate git commit hash. Cant get it to work in keil prebuild steps for some reason so I have been manually doing it inside git.
+ *
  */

@@ -1,7 +1,19 @@
-
+/**@addtogroup PID_Control
+ * @{
+ * @file pid.h
+ * @brief Contains pid related functions.
+ * @author Quinn Maloney
+ */
 
 #include "pid.h"
 
+/**
+ * @brief Initializes values of pid struct for use.
+ * @details sets pid constants (kp, ki, kd, time interval) to their values
+ * as well as setting all other info to 0. kp, ki, and kd all tuned through
+ * testing.
+ * @param controller (*pid) pid struct that is getting initialized gets passed in.
+ */
 void pid_init(pid *controller) {
 	/* Clear controller variables */
 	controller->kp = 1.0;
@@ -12,6 +24,15 @@ void pid_init(pid *controller) {
 	controller->time = 0.25;
 }
 
+/**
+ * @brief Takes current value and adjust duty cycle to balance ping pong ball.
+ * @details uses a PID control system/ algorithm to determine how to adjust servo to balance
+ * ping pong ball in correct spot.
+ * @param controller (*pid) pid struct that is used to adjust duty values.
+ * @param setpoint (int) the target location in IR-sensor reading values.
+ * @param measurement (int) the current locatio in IR-sensor readings.
+ * @return result (int) new calculated duty cycle.
+ */
 int pid_update(pid *controller, int setpoint, int measurement)
 {
 	int error = -(setpoint - measurement);
@@ -33,3 +54,4 @@ int pid_update(pid *controller, int setpoint, int measurement)
 	
 	return result;
 }
+/** @} */

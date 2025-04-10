@@ -27,6 +27,7 @@ var NAVTREE =
   [ "Ball Height Controller", "index.html", [
     [ "Description", "index.html#intro_sec", null ],
     [ "Additional Information", "index.html#install_sec", null ],
+    [ "commit number", "index.html#git", null ],
     [ "Topics", "topics.html", "topics" ],
     [ "Data Structures", "annotated.html", [
       [ "Data Structures", "annotated.html", "annotated_dup" ],

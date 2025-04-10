@@ -8,6 +8,8 @@ var constants_8h =
       [ "GET_HELP", "constants_8h.html#a55c590ae6437cd9d6c36318a0a037e5aa3e3a7efa6851bec120313c04b0106e1f", null ],
       [ "CLI_ERROR", "constants_8h.html#a55c590ae6437cd9d6c36318a0a037e5aa5065034024d4b6fd93047b6cb8eec6c9", null ],
       [ "DECREASE_DUTY", "constants_8h.html#a55c590ae6437cd9d6c36318a0a037e5aa7a8c5b0603cc83bb8e6b93bfb0c38345", null ],
-      [ "INCREASE_DUTY", "constants_8h.html#a55c590ae6437cd9d6c36318a0a037e5aabb83862b2603c94673ef2f689c1354dd", null ]
+      [ "INCREASE_DUTY", "constants_8h.html#a55c590ae6437cd9d6c36318a0a037e5aabb83862b2603c94673ef2f689c1354dd", null ],
+      [ "START_SELF_BALANCING", "constants_8h.html#a55c590ae6437cd9d6c36318a0a037e5aad4ff39f373140ddd4608985c56e6c8b4", null ],
+      [ "STOP_SELF_BALANCING", "constants_8h.html#a55c590ae6437cd9d6c36318a0a037e5aa80b7ee6ac3b423e5967311f490c85c2f", null ]
     ] ]
 ];

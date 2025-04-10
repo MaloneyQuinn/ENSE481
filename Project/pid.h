@@ -1,7 +1,17 @@
-
+/**@addtogroup PID_Control
+ * @{
+ * @file pid.h
+ * @brief Header for pid related functions.
+ * @author Quinn Maloney
+ */
 #include "stm32f10x.h"
 #include "constants.h"
 
+/**
+ * @brief Structure to keep PID values in
+ * @details stores all necessary values for PID calculations in a 
+ * structure for convenient use and variable passing.
+ */
 typedef struct {
 	double kp;
 	double ki;
@@ -22,3 +32,4 @@ increase I until you are returning to the set-point quick enough for your applic
 
 increase D until you’ve started to dampen your response as you approach the set point.
 */
+/** @} */

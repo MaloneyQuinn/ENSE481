@@ -16,7 +16,7 @@
  * to be an alternate function output, as well as set up TIM4 values.
  * PSC set to 71 and ARR set to 20000 making the output 50Hz. (explained in
  * pwm_calculations.txt in documentation on github. TIM4->CCR2 set to
- * 1500 initially (center point). Used to set up PWM to be used.
+ * MIN_DUTY initially (center point). Used to set up PWM to be used.
  */
 void pwm_setup()
 {

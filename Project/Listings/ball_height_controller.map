@@ -796,31 +796,31 @@ Image Symbol Table
     tenpwrs_x                                0x08002e78   Data          60  bigflt0.o(.constdata)
     .constdata                               0x08002e78   Section      148  bigflt0.o(.constdata)
     tenpwrs_i                                0x08002eb4   Data          64  bigflt0.o(.constdata)
-    .L.str.1                                 0x08002f0c   Data           2  main.o(.rodata.str1.1)
-    .L.str.1                                 0x08002f0c   Data           2  main.o(.rodata.str1.1)
     [Anonymous Symbol]                       0x08002f0c   Section        0  main.o(.rodata.str1.1)
-    .L.str.2                                 0x08002f0e   Data           2  main.o(.rodata.str1.1)
-    .L.str.2                                 0x08002f0e   Data           2  main.o(.rodata.str1.1)
-    .L.str.3                                 0x08002f10   Data           4  main.o(.rodata.str1.1)
-    .L.str.4                                 0x08002f14   Data          71  main.o(.rodata.str1.1)
-    .L.str.7                                 0x08002f5b   Data          24  main.o(.rodata.str1.1)
-    .L.str.6                                 0x08002f73   Data          24  main.o(.rodata.str1.1)
-    .L.str.8                                 0x08002f8b   Data          30  main.o(.rodata.str1.1)
-    .L.str.5                                 0x08002fa9   Data          27  main.o(.rodata.str1.1)
-    .L.str                                   0x08002fcb   Data          58  main.o(.rodata.str1.1)
-    .L.str                                   0x08003005   Data           3  usart.o(.rodata.str1.1)
-    [Anonymous Symbol]                       0x08003005   Section        0  usart.o(.rodata.str1.1)
-    locale$$data                             0x08003028   Section       28  lc_numeric_c.o(locale$$data)
-    __lcnum_c_name                           0x0800302c   Data           2  lc_numeric_c.o(locale$$data)
-    __lcnum_c_start                          0x08003034   Data           0  lc_numeric_c.o(locale$$data)
-    __lcnum_c_point                          0x08003040   Data           0  lc_numeric_c.o(locale$$data)
-    __lcnum_c_thousands                      0x08003042   Data           0  lc_numeric_c.o(locale$$data)
-    __lcnum_c_grouping                       0x08003043   Data           0  lc_numeric_c.o(locale$$data)
-    __lcnum_c_end                            0x08003044   Data           0  lc_numeric_c.o(locale$$data)
-    locale$$data                             0x08003044   Section      272  lc_ctype_c.o(locale$$data)
-    __lcctype_c_name                         0x08003048   Data           2  lc_ctype_c.o(locale$$data)
-    __lcctype_c_start                        0x08003050   Data           0  lc_ctype_c.o(locale$$data)
-    __lcctype_c_end                          0x08003154   Data           0  lc_ctype_c.o(locale$$data)
+    .L.str.1                                 0x08002f75   Data           2  main.o(.rodata.str1.1)
+    .L.str.1                                 0x08002f75   Data           2  main.o(.rodata.str1.1)
+    .L.str.2                                 0x08002f77   Data           2  main.o(.rodata.str1.1)
+    .L.str.2                                 0x08002f77   Data           2  main.o(.rodata.str1.1)
+    .L.str.3                                 0x08002f79   Data           4  main.o(.rodata.str1.1)
+    .L.str.4                                 0x08002f7d   Data          71  main.o(.rodata.str1.1)
+    .L.str.7                                 0x08002fc4   Data          24  main.o(.rodata.str1.1)
+    .L.str.6                                 0x08002fdc   Data          24  main.o(.rodata.str1.1)
+    .L.str.8                                 0x08002ff4   Data          30  main.o(.rodata.str1.1)
+    .L.str.5                                 0x08003012   Data          27  main.o(.rodata.str1.1)
+    .L.str                                   0x0800302d   Data          58  main.o(.rodata.str1.1)
+    .L.str                                   0x08003067   Data           3  usart.o(.rodata.str1.1)
+    [Anonymous Symbol]                       0x08003067   Section        0  usart.o(.rodata.str1.1)
+    locale$$data                             0x0800308c   Section       28  lc_numeric_c.o(locale$$data)
+    __lcnum_c_name                           0x08003090   Data           2  lc_numeric_c.o(locale$$data)
+    __lcnum_c_start                          0x08003098   Data           0  lc_numeric_c.o(locale$$data)
+    __lcnum_c_point                          0x080030a4   Data           0  lc_numeric_c.o(locale$$data)
+    __lcnum_c_thousands                      0x080030a6   Data           0  lc_numeric_c.o(locale$$data)
+    __lcnum_c_grouping                       0x080030a7   Data           0  lc_numeric_c.o(locale$$data)
+    __lcnum_c_end                            0x080030a8   Data           0  lc_numeric_c.o(locale$$data)
+    locale$$data                             0x080030a8   Section      272  lc_ctype_c.o(locale$$data)
+    __lcctype_c_name                         0x080030ac   Data           2  lc_ctype_c.o(locale$$data)
+    __lcctype_c_start                        0x080030b4   Data           0  lc_ctype_c.o(locale$$data)
+    __lcctype_c_end                          0x080031b8   Data           0  lc_ctype_c.o(locale$$data)
     GIT_INFO                                 0x20000000   Data           4  main.o(.data.GIT_INFO)
     [Anonymous Symbol]                       0x20000000   Section        0  main.o(.data.GIT_INFO)
     .bss                                     0x20000008   Section       96  libspace.o(.bss)
@@ -1123,9 +1123,9 @@ Image Symbol Table
     _printf_fp_dec                           0x08002e09   Thumb Code     4  printf1.o(x$fpl$printf1)
     _printf_fp_hex                           0x08002e0d   Thumb Code     4  printf2.o(x$fpl$printf2)
     __I$use$fp                               0x08002e10   Number         0  usenofp.o(x$fpl$usenofp)
-    Region$$Table$$Base                      0x08003008   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x08003028   Number         0  anon$$obj.o(Region$$Table)
-    __ctype                                  0x08003051   Data           0  lc_ctype_c.o(locale$$data)
+    Region$$Table$$Base                      0x0800306c   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x0800308c   Number         0  anon$$obj.o(Region$$Table)
+    __ctype                                  0x080030b5   Data           0  lc_ctype_c.o(locale$$data)
     __libspace_start                         0x20000008   Data          96  libspace.o(.bss)
     __temporary_stack_top$libspace           0x20000068   Data           0  libspace.o(.bss)
 
@@ -1137,9 +1137,9 @@ Memory Map of the image
 
   Image Entry point : 0x08000131
 
-  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x00003160, Max: 0x00100000, ABSOLUTE)
+  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x000031c0, Max: 0x00100000, ABSOLUTE)
 
-    Execution Region ER_IROM1 (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x00003154, Max: 0x00100000, ABSOLUTE)
+    Execution Region ER_IROM1 (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x000031b8, Max: 0x00100000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -1325,26 +1325,27 @@ Memory Map of the image
     0x08002e51   0x08002e51   0x00000026   Data   RO          274    .constdata          c_w.l(_printf_fp_hex.o)
     0x08002e77   0x08002e77   0x00000001   PAD
     0x08002e78   0x08002e78   0x00000094   Data   RO          297    .constdata          c_w.l(bigflt0.o)
-    0x08002f0c   0x08002f0c   0x000000f9   Data   RO           15    .rodata.str1.1      main.o
-    0x08003005   0x08003005   0x00000003   Data   RO           45    .rodata.str1.1      usart.o
-    0x08003008   0x08003008   0x00000020   Data   RO          483    Region$$Table       anon$$obj.o
-    0x08003028   0x08003028   0x0000001c   Data   RO          323    locale$$data        c_w.l(lc_numeric_c.o)
-    0x08003044   0x08003044   0x00000110   Data   RO          345    locale$$data        c_w.l(lc_ctype_c.o)
+    0x08002f0c   0x08002f0c   0x0000015b   Data   RO           15    .rodata.str1.1      main.o
+    0x08003067   0x08003067   0x00000003   Data   RO           45    .rodata.str1.1      usart.o
+    0x0800306a   0x0800306a   0x00000002   PAD
+    0x0800306c   0x0800306c   0x00000020   Data   RO          483    Region$$Table       anon$$obj.o
+    0x0800308c   0x0800308c   0x0000001c   Data   RO          323    locale$$data        c_w.l(lc_numeric_c.o)
+    0x080030a8   0x080030a8   0x00000110   Data   RO          345    locale$$data        c_w.l(lc_ctype_c.o)
 
 
-    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x08003158, Size: 0x00000690, Max: 0x00018000, ABSOLUTE)
+    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x080031b8, Size: 0x00000690, Max: 0x00018000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x20000000   0x08003158   0x00000004   Data   RW           16    .data.GIT_INFO      main.o
-    0x20000004   0x0800315c   0x00000004   PAD
+    0x20000000   0x080031b8   0x00000004   Data   RW           16    .data.GIT_INFO      main.o
+    0x20000004   0x080031bc   0x00000004   PAD
     0x20000008        -       0x00000060   Zero   RW          339    .bss                c_w.l(libspace.o)
     0x20000068        -       0x00000014   Zero   RW           13    .bss.BUFFER         main.o
     0x2000007c        -       0x00000004   Zero   RW           14    .bss.CLI_COUNTER    main.o
     0x20000080        -       0x00000004   Zero   RW           11    .bss.CURRENT_ADC    main.o
     0x20000084        -       0x00000004   Zero   RW           10    .bss.CURRENT_PULSE  main.o
     0x20000088        -       0x00000001   Zero   RW           12    .bss.SELF_BALANCING  main.o
-    0x20000089   0x0800315c   0x00000007   PAD
+    0x20000089   0x080031bc   0x00000007   PAD
     0x20000090        -       0x00000200   Zero   RW           94    HEAP                startup_stm32f10x_xl.o
     0x20000290        -       0x00000400   Zero   RW           93    STACK               startup_stm32f10x_xl.o
 
@@ -1357,18 +1358,18 @@ Image component sizes
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
         46          0          0          0          0       1222   adc.o
-       846         10        249          4         33       4205   main.o
-       310          0          0          0          0       1327   pid.o
+       846         10        347          4         33       4206   main.o
+       310          0          0          0          0       1329   pid.o
        256          0          0          0          0       2267   pwm.o
         64         26        304          0       1536        840   startup_stm32f10x_xl.o
        400          0          0          0          0       3096   system_stm32f10x.o
-       104          0          0          0          0       3015   systick.o
+       104          0          0          0          0       3017   systick.o
       1164          0          3          0          0       5892   usart.o
 
     ----------------------------------------------------------------------
-      3214         36        588          4       1580      21864   Object Totals
+      3214         36        688          4       1580      21869   Object Totals
          0          0         32          0          0          0   (incl. Generated)
-        24          0          0          0         11          0   (incl. Padding)
+        24          0          2          0         11          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
@@ -1480,15 +1481,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-     11488        338       1140          4       1676      24068   Grand Totals
-     11488        338       1140          4       1676      24068   ELF Image Totals
-     11488        338       1140          4          0          0   ROM Totals
+     11488        338       1240          4       1676      24073   Grand Totals
+     11488        338       1240          4       1676      24073   ELF Image Totals
+     11488        338       1240          4          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                12628 (  12.33kB)
+    Total RO  Size (Code + RO Data)                12728 (  12.43kB)
     Total RW  Size (RW Data + ZI Data)              1680 (   1.64kB)
-    Total ROM Size (Code + RO Data + RW Data)      12632 (  12.34kB)
+    Total ROM Size (Code + RO Data + RW Data)      12732 (  12.43kB)
 
 ==============================================================================
 
