@@ -4,7 +4,7 @@
 
 void pid_init(pid *controller) {
 	/* Clear controller variables */
-	controller->kp = 0.5;
+	controller->kp = 1.0;
 	controller->ki = 0.0;
 	controller->kd = 0.0;
 	controller->previous_error = 0;
@@ -14,7 +14,7 @@ void pid_init(pid *controller) {
 
 int pid_update(pid *controller, int setpoint, int measurement)
 {
-	int error = setpoint - measurement;
+	int error = -(setpoint - measurement);
 	
 	double proportional = controller->kp * error;
 	
