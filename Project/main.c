@@ -33,6 +33,8 @@ int main(void)
 	adc_setup();
 	systick_setup();
 	ADC1->CR2 = 0x00000001;
+	pid controller;
+	pid_init(&controller);
 	while(1)
 	{
 		current_pulse = TIM4->CCR2;
