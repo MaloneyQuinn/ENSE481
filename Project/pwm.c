@@ -31,7 +31,7 @@ void pwm_setup()
 	
 	TIM4->PSC = 71;
 	TIM4->ARR = 20000;
-	TIM4->CCR2 = 1500;
+	TIM4->CCR2 = MIN_DUTY;
 	
 	TIM4->CR1 |= TIM_CR1_URS;
 	TIM4->CR1 |= TIM_CR1_CEN;

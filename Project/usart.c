@@ -8,12 +8,8 @@
  */
  
 #include "usart.h"
-#include "stdbool.h"
 #include "pwm.h"
 
-static char BUFFER[20] = "";
-static int CLI_COUNTER = 0;
-static bool received = false;
 
 /**
  * @brief Initializes USART2 to be used for CLI.
@@ -42,14 +38,8 @@ void usart_setup(void)
 uint16_t usart_get()
 {
 	//while(!(USART2->SR & (1<<5)));
-	if(received == true)
-	{
 		uint16_t character = USART2->DR & 0xFF;
-		received = false;
 		return character;
-	}
-	else
-		return NULL;
 }
 
 /**
@@ -60,7 +50,7 @@ uint16_t usart_get()
  */
 void usart_put(uint16_t val)
 {
-	while(!(USART2->SR & (1<<7)))
+	while(!(USART2->SR & (1<<7)));
 		USART2->DR = (val);
 }
 
@@ -134,7 +124,7 @@ void cli_setup()
  * @param adc_reading (int) the value of the adc1 data register attached to
  * the IR sensor. Takes the voltage and converts to a binary number.
  */
-void cli_update(uint32_t duty_cycle, uint32_t adc_reading)
+void cli_update(uint32_t duty_cycle, int adc_reading)
 {
 	char newline[] = "\n";
 	char cr[] = "\r";
@@ -178,7 +168,7 @@ void cli_update(uint32_t duty_cycle, uint32_t adc_reading)
  * @return cli_return (enum) defined in constants.h an enum is used for the variable 
  * options that can be returned.
  */
-int cli_receive()
+int cli_receive(char BUFFER[], int CLI_COUNTER)
 {
 	uint16_t input = usart_get();
 	if (input == NULL)
@@ -200,6 +190,20 @@ int cli_receive()
 			usart_print("\n");
 			usart_print("\r");
 			return GET_HELP;
+		}
+		else if (BUFFER[0] == 's' && BUFFER[1] == 't' && BUFFER[2] == 'a' && BUFFER[3] == 'r' && BUFFER[4] == 't')
+		{
+			clear_array(BUFFER);
+			usart_print("\n");
+			usart_print("\r");
+			return START_SELF_BALANCING;
+		}
+		else if (BUFFER[0] == 's' && BUFFER[1] == 't' && BUFFER[2] == 'o' && BUFFER[3] == 'p')
+		{
+			clear_array(BUFFER);
+			usart_print("\n");
+			usart_print("\r");
+			return STOP_SELF_BALANCING;
 		}
 		else
 		{
@@ -233,64 +237,4 @@ int cli_receive()
 		return ADD_CHARACTER;
 	}
 }
-
-void USART2_IRQHandler(void) 
-{
-  volatile unsigned int IIR;
-    IIR = USART2->SR;
-    if (IIR & USART_SR_RXNE)
-		{			// read interrupt
-      USART2->SR &= ~USART_SR_RXNE;// clear interrupt
-			received = true;
-			int cli_result = cli_receive();
-			switch (cli_result)
-		{
-			case REMOVE_CHARACTER:
-				CLI_COUNTER--;
-				break;
-			
-			case DO_NOTHING:
-				break;
-			
-			case ADD_CHARACTER:
-				CLI_COUNTER++;
-				break;
-			
-			case CLI_ERROR:
-				usart_print("error, invalid input. enter 'help' for a list of commands");
-				usart_print("\n");
-			  usart_print("\n");
-				usart_print("\r");
-			  usart_print(">> ");
-				CLI_COUNTER = 0;
-				break;
-			
-			case GET_VERSION:
-				usart_print(PROGRAM_VERSION);
-				usart_print("\n");
-			  usart_print("\n");
-				usart_print("\r");
-			  usart_print(">> ");
-				CLI_COUNTER = 0;
-				break;
-			
-			case GET_HELP:
-				usart_print("-v: shows program version, [ and ] change duty cycle (lower and raise)");
-				usart_print("\n");
-			  usart_print("\n");
-				usart_print("\r");
-			  usart_print(">> ");
-				CLI_COUNTER = 0;
-				break;
-			
-			case DECREASE_DUTY:
-				change_duty(-100);
-				break;
-			
-			case INCREASE_DUTY:
-				change_duty(100);
-				break;
-		}
-		}
-}		
 /** @} */

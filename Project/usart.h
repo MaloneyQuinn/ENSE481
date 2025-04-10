@@ -16,7 +16,7 @@ int get_size(char word[]);
 void clear_array(char word[]);
 void usart_print(char word[]);
 void cli_setup(void);
-void cli_update(uint32_t duty_cycle, uint32_t adc_reading);
-int cli_receive(void);
+void cli_update(uint32_t duty_cycle, int adc_reading);
+int cli_receive(char BUFFER[], int CLI_COUNTER);
 void USART2_IRQHandler(void) ;
 /** @} */
