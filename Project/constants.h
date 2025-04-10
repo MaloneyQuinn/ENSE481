@@ -22,7 +22,9 @@ enum cli_return
 	GET_HELP = 3,
 	CLI_ERROR = 4,
 	DECREASE_DUTY = 5,
-	INCREASE_DUTY = 6
+	INCREASE_DUTY = 6,
+	START_SELF_BALANCING = 7,
+	STOP_SELF_BALANCING = 8
 };
 
 /**
@@ -35,11 +37,13 @@ const static char PROGRAM_VERSION[] = "Version 1.0.0, March 25, 2024, Milestone 
  * @var uint16_t MAX_DUTY
  * Contains the maximum value duty cycle allowed
  */
-const static uint16_t MAX_DUTY = 2400;
+const static uint16_t MAX_DUTY = 1270;
+
+const static int SETPOINT = 1500;
 
 /**
  * @var uint16_t MIN_DUTY
  * Contains the minimum value duty cycle allowed
  */
-const static uint16_t MIN_DUTY = 600;
+const static uint16_t MIN_DUTY = 1140;
 #endif
