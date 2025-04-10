@@ -419,7 +419,7 @@
         <Bp>
           <Number>17</Number>
           <Type>0</Type>
-          <LineNumber>41</LineNumber>
+          <LineNumber>42</LineNumber>
           <EnabledFlag>0</EnabledFlag>
           <Address>0</Address>
           <ByteObject>0</ByteObject>
@@ -794,6 +794,18 @@
       <bDave2>0</bDave2>
       <PathWithFileName>.\pid.h</PathWithFileName>
       <FilenameWithoutPath>pid.h</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
+    </File>
+    <File>
+      <GroupNumber>3</GroupNumber>
+      <FileNumber>15</FileNumber>
+      <FileType>5</FileType>
+      <tvExp>0</tvExp>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <bDave2>0</bDave2>
+      <PathWithFileName>.\gitcommit.h</PathWithFileName>
+      <FilenameWithoutPath>gitcommit.h</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>

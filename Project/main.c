@@ -16,6 +16,7 @@
 #include "adc.h"
 #include "systick.h"
 #include "pid.h"
+#include "gitcommit.h"
 void time_delay(int time);
 void SysTick_Handler(void);
 
@@ -96,7 +97,7 @@ void USART2_IRQHandler(void)
 				break;
 			
 			case GET_VERSION:
-				usart_print(PROGRAM_VERSION);
+				usart_print(GIT_INFO);
 				usart_print("\n");
 			  usart_print("\n");
 				usart_print("\r");
