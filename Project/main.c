@@ -46,7 +46,7 @@ int main(void)
 		CURRENT_PULSE = TIM4->CCR2;
 		CURRENT_ADC = (int)ADC1->DR;
 		if(SELF_BALANCING == true)
-			change_duty((uint32_t)pid_update(&controller, SETPOINT, CURRENT_ADC));
+			TIM4->CCR2 = pid_update(&controller, SETPOINT, CURRENT_ADC);
 		time_delay(250000);
 		ADC1->CR2 = 0x00000001;
 	}
