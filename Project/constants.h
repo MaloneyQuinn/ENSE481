@@ -37,13 +37,17 @@ const static char PROGRAM_VERSION[] = "Version 1.0.0, March 25, 2024, Milestone 
  * @var uint16_t MAX_DUTY
  * Contains the maximum value duty cycle allowed
  */
-const static uint16_t MAX_DUTY = 1270;
+const static uint16_t MAX_DUTY = 1280;
 
-const static int SETPOINT = 1500;
+const static int SETPOINT = 1300;
+
+const static int MAX_INTEGRAL = 500;
+
+const static int MIN_INTEGRAL = -500;
 
 /**
  * @var uint16_t MIN_DUTY
  * Contains the minimum value duty cycle allowed
  */
-const static uint16_t MIN_DUTY = 1140;
+const static uint16_t MIN_DUTY = 1130;
 #endif

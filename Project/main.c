@@ -16,7 +16,7 @@
 #include "adc.h"
 #include "systick.h"
 #include "pid.h"
-#include "gitcommit.h"
+//#include "gitcommit.h"
 void time_delay(int time);
 void SysTick_Handler(void);
 
@@ -46,10 +46,9 @@ int main(void)
 		CURRENT_PULSE = TIM4->CCR2;
 		CURRENT_ADC = (int)ADC1->DR;
 		if(SELF_BALANCING == true)
-			CURRENT_PULSE = (uint32_t)pid_update(&controller, SETPOINT, CURRENT_ADC);
-		time_delay(500000);
-		time_delay(500000);
-		time_delay(500000);
+			TIM4->CCR2 = (uint32_t)pid_update(&controller, SETPOINT, CURRENT_ADC);
+		//time_delay(500000);
+		time_delay(250000);
 		ADC1->CR2 = 0x00000001;
 	}
 }
@@ -112,7 +111,7 @@ void USART2_IRQHandler(void)
 				break;
 			
 			case GET_VERSION:
-				usart_print(GIT_INFO);
+				//usart_print(GIT_INFO);
 				usart_print("\n");
 			  usart_print("\n");
 				usart_print("\r");

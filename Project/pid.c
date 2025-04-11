@@ -16,12 +16,12 @@
  */
 void pid_init(pid *controller) {
 	/* Clear controller variables */
-	controller->kp = 1.0;
-	controller->ki = 0.0;
-	controller->kd = 0.0;
+	controller->kp = 2.0;
+	controller->ki = 2.5;
+	controller->kd = 3.0;
 	controller->previous_error = 0;
 	controller->integral = 0;
-	controller->time = 0.25;
+	controller->time = 0.1;
 }
 
 /**
@@ -40,6 +40,11 @@ int pid_update(pid *controller, int setpoint, int measurement)
 	double proportional = controller->kp * error;
 	
 	controller->integral += 0.5 * controller->ki * controller->time * (error + controller->previous_error);
+	
+	if(controller->integral > MAX_INTEGRAL)
+		controller->integral = MAX_INTEGRAL;
+	else if(controller->integral < MIN_INTEGRAL)
+		controller->integral = MIN_INTEGRAL;
 	
 	double change = error - controller->previous_error;
 	
