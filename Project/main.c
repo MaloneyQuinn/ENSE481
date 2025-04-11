@@ -121,7 +121,10 @@ void USART2_IRQHandler(void)
 			case GET_HELP:
 				usart_print("-v: shows program version, [ and ] change duty cycle (lower and raise)");
 				usart_print("\n");
+				usart_print("\r");
+				usart_print("start begins self balancing and stop ends self balancing");
 			  usart_print("\n");
+				usart_print("\n");
 				usart_print("\r");
 			  usart_print(">> ");
 				CLI_COUNTER = 0;
