@@ -17,7 +17,7 @@ void systick_setup(void)
 {
 	SysTick->CTRL = 0;
 	SysTick->VAL = 0;
-	SysTick->LOAD = 0x895440;
+	SysTick->LOAD = 0xDA9D0;
 	SysTick-> CTRL = 0x3;
 	NVIC_EnableIRQ(SysTick_IRQn);
 }
